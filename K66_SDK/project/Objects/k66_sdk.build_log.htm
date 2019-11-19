@@ -1,0 +1,63 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.25.2.0
+Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: 457 457, 457, LIC=21E4T-RRLVU-Z9UG9-4BY1R-7YGSR-HFVXA
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.25.2.0
+Toolchain Path:  D:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.25.2.0
+Dialog DLL:      DCM.DLL V1.17.1.0
+Target DLL:      CMSIS_AGDI.dll V1.29.10.0
+Dialog DLL:      TCM.DLL V1.35.1.0
+ 
+<h2>Project:</h2>
+F:\2020织女星\K66_SDK\project\k66_sdk.uvprojx
+Project File Date:  11/18/2019
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'Target 1'
+compiling main.c...
+..\source\DMA\DMA.h(159): warning:  #174-D: expression has no effect
+      DMA_SADDR_SADDR((uint32_t)SADDR);                    		 // 设置  源地址
+..\source\DMA\DMA.h(160): warning:  #174-D: expression has no effect
+      DMA_DADDR_DADDR((uint32_t)DADDR);                      		 // 设置目的地址
+..\source\DMA\DMA.h(162): warning:  #174-D: expression has no effect
+      DMA_EN(DMA_CH0);                        //使能DMA 硬件请求
+..\source\main.c(9): warning:  #177-D: variable "site"  was declared but never referenced
+  	Site_t site     = {0, 0};                           //显示图像左上角位置
+..\source\main.c(10): warning:  #177-D: variable "imgsize"  was declared but never referenced
+      Size_t imgsize  = {CAMERA_W, CAMERA_H};             //图像大小
+..\source\main.c(11): warning:  #177-D: variable "size"  was declared but never referenced
+      Size_t size;
+..\source\main.c: 6 warnings, 0 errors
+linking...
+Program Size: Code=12244 RO-data=1440 RW-data=172 ZI-data=7624  
+".\Objects\k66_sdk.axf" - 0 Error(s), 6 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.Kinetis_K60_DFP.1.5.0.pack
+                Keil.Kinetis_K60_DFP.1.5.0
+                NXP Kinetis K60 Series Device Support and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_Target_1
+  D:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+Build Time Elapsed:  00:00:08
+</pre>
+</body>
+</html>
