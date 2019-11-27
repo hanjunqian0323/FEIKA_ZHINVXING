@@ -1,3 +1,9 @@
+/***********************************************************************
+*@Author: sola
+*@Date: 2019-11-28 01:33:47
+*@FilePath: \FEIKA_ZHINVXING\Freescals\source\main.h
+*@Drscription: 
+***********************************************************************/
 #ifndef _MAIN_H_
 #define _MAIN_H_
 
@@ -18,23 +24,14 @@
 #include "fsl_edma.h"
 #include "fsl_port.h"
 //自己定义
-#include "LED.h"
-#include "KEY.h"
-#include "DELAY.h"
-#include "PIT.h"        
-#include "PWM.h"
-#include "INCAP.h"
-#include "ADC.h"
-#include "K66ADC.h"
-#include "OV7725.h"
-#include "SCCB.h"
-#include "DMA.h"
-#include "computer.h"
-#include "UsART.h"
+#include "led.h"
 
 
 
 
+
+
+void Error_Handle(void);
 
 
 

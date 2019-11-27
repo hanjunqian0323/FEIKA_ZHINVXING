@@ -54,7 +54,7 @@
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
           <DebugInformation>1</DebugInformation>
-          <BrowseInformation>1</BrowseInformation>
+          <BrowseInformation>0</BrowseInformation>
           <ListingPath>.\Listings\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
@@ -338,7 +338,7 @@
               <MiscControls>--library_interface=armcc --diag_suppress=1296,186</MiscControls>
               <Define>DEBUG,CPU_MK66FX1M0VLQ18, PRINTF_FLOAT_ENABLE=0, SCANF_FLOAT_ENABLE=0, PRINTF_ADVANCED_ENABLE=0, SCANF_ADVANCED_ENABLE=0, FRDM_K66F, FREEDOM</Define>
               <Undefine></Undefine>
-              <IncludePath>..\board;..\components\lists;..\components\serial_manager;..\components\uart;..\drivers\arm;..\drivers\cmsis_drivers;..\drivers\drivers;..\source;..\startup;..\utilities\str;..\utilities\str;..\utilities\debug_console;..\drivers\CMSIS\Include;..\source\LED;..\source\KEY;..\source\PIT;..\source\PWM;..\source\DELAY;..\source\INCAP;..\source\ADC;..\source\OV7725;..\source\SCCB;..\source\DMA;..\source\COMPUTER;..\source\UART</IncludePath>
+              <IncludePath>..\board;..\components\lists;..\components\serial_manager;..\components\uart;..\drivers\arm;..\drivers\cmsis_drivers;..\drivers\drivers;..\source;..\startup;..\utilities\str;..\utilities\str;..\utilities\debug_console;..\drivers\CMSIS\Include;..\drivers\Hardware</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -386,66 +386,6 @@
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\source\main.c</FilePath>
-            </File>
-            <File>
-              <FileName>KEY.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\source\KEY\KEY.c</FilePath>
-            </File>
-            <File>
-              <FileName>LED.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\source\LED\LED.c</FilePath>
-            </File>
-            <File>
-              <FileName>PIT.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\source\PIT\PIT.c</FilePath>
-            </File>
-            <File>
-              <FileName>PWM.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\source\PWM\PWM.c</FilePath>
-            </File>
-            <File>
-              <FileName>DELAY.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\source\DELAY\DELAY.c</FilePath>
-            </File>
-            <File>
-              <FileName>INCAP.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\source\INCAP\INCAP.c</FilePath>
-            </File>
-            <File>
-              <FileName>K66ADC.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\source\ADC\K66ADC.c</FilePath>
-            </File>
-            <File>
-              <FileName>OV7725.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\source\OV7725\OV7725.c</FilePath>
-            </File>
-            <File>
-              <FileName>SCCB.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\source\SCCB\SCCB.c</FilePath>
-            </File>
-            <File>
-              <FileName>DMA.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\source\DMA\DMA.c</FilePath>
-            </File>
-            <File>
-              <FileName>computer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\source\COMPUTER\computer.c</FilePath>
-            </File>
-            <File>
-              <FileName>UsART.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\source\UART\UsART.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -624,6 +564,16 @@
         </Group>
         <Group>
           <GroupName>CMSIS</GroupName>
+        </Group>
+        <Group>
+          <GroupName>Hardware</GroupName>
+          <Files>
+            <File>
+              <FileName>led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\drivers\Hardware\led.c</FilePath>
+            </File>
+          </Files>
         </Group>
       </Groups>
     </Target>

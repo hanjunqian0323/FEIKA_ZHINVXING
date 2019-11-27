@@ -1,0 +1,42 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "D:\\Keil_v5\\ARM\\ARMCC\\include",
+                "${workspaceFolder}/**Freescals\\board",
+                "${workspaceFolder}/**Freescals\\components\\serial_manager",
+                "${workspaceFolder}/**Freescals\\components\\uart",
+                "${workspaceFolder}/**Freescals\\drivers\\CMSIS\\Include",
+                "${workspaceFolder}/**Freescals\\drivers\\CMSIS\\Driver\\Include",
+                "${workspaceFolder}/**Freescals\\drivers\\cmsis_drivers",
+                "${workspaceFolder}/**Freescals\\drivers\\drivers",
+                "${workspaceFolder}/**Freescals\\drivers\\Hardware",
+                "${workspaceFolder}/**Freescals\\source",
+                "${workspaceFolder}/**Freescals\\startup",
+                "${workspaceFolder}/**Freescals\\utilities",
+                "${workspaceFolder}/**Freescals\\utilities\\str",
+                "${workspaceFolder}/**Freescals\\utilities\\debug_console"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "__CC_ARM",
+                "DEBUG",
+                "CPU_MK66FX1M0VLQ18",
+                "PRINTF_FLOAT_ENABLE=0",
+                "SCANF_FLOAT_ENABLE=0",
+                "PRINTF_ADVANCED_ENABLE=0",
+                "SCANF_ADVANCED_ENABLE=0",
+                "FRDM_K66F",
+                "FREEDOM"
+            ],
+            "compilerPath": "C:\\Program Files\\LLVM\\bin\\clang.exe",
+            "cppStandard": "c++17",
+            "cStandard": "c99"
+        }
+    ],
+    "version": 4
+}
