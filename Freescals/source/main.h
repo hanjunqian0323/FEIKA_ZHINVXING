@@ -25,10 +25,12 @@
 #include "fsl_port.h"
 //自己定义
 #include "led.h"
+#include "sccb.h"
 
 
-
-
+#define enable_irq(irq)                 NVIC_EnableIRQ(irq)         //使能IRQ
+#define disable_irq(irq)                NVIC_DisableIRQ(irq)        //禁止IRQ
+#define set_irq_priority(irq,pri0)      NVIC_SetPriority(irq,pri0)  //设置优先级
 
 
 void Error_Handle(void);
