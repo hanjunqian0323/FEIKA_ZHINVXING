@@ -8,14 +8,14 @@
 
 
 /***********************************************************************
-*@Function: 
-*@Input: 
+*@Function: SCCB_Delay
+*@Input: tim(0-65535)
 *@Return: none
 *@Author: sola
 *@Date: 2019-12-03 23:59:24
-*@Drscription: 
+*@Drscription: 延时函数（不精准，需要400us）
 ***********************************************************************/
-void SCCB_Delay(uint32_t tim)
+void SCCB_Delay(__IO uint32_t tim)
 {
     while (tim)
     {
@@ -24,12 +24,12 @@ void SCCB_Delay(uint32_t tim)
 }
 
 /***********************************************************************
-*@Function: 
-*@Input: 
+*@Function: SCCB_Init
+*@Input: void
 *@Return: none
 *@Author: sola
 *@Date: 2019-12-03 23:59:20
-*@Drscription: 
+*@Drscription: SCCB模拟时序的引脚初始化，初始化为GPIO模式，PORT设置为开漏
 ***********************************************************************/
 bool SCCB_Init(void)
 {
@@ -74,12 +74,12 @@ bool SCCB_Init(void)
 }
 
 /***********************************************************************
-*@Function: 
-*@Input: 
+*@Function: SCCB_MODE_CHANGE
+*@Input: mode（0,1）
 *@Return: none
 *@Author: sola
 *@Date: 2019-12-03 23:59:15
-*@Drscription: 
+*@Drscription: 选择SDA的输入输出模式，0位输入，1为输出
 ***********************************************************************/
 void SCCB_MODE_CHANGE(uint8_t mode)
 {
@@ -99,12 +99,12 @@ void SCCB_MODE_CHANGE(uint8_t mode)
 }
 
 /***********************************************************************
-*@Function: 
-*@Input: 
+*@Function: SCCB_Start
+*@Input: void
 *@Return: none
 *@Author: sola
 *@Date: 2019-12-03 23:59:31
-*@Drscription: 
+*@Drscription: SCCB的起始信号
 ***********************************************************************/
 bool SCCB_Start(void)
 {
@@ -137,12 +137,12 @@ bool SCCB_Start(void)
 }
 
 /***********************************************************************
-*@Function: 
-*@Input: 
+*@Function: SCCB_Stop
+*@Input: void
 *@Return: none
 *@Author: sola
 *@Date: 2019-12-04 00:05:26
-*@Drscription: 
+*@Drscription: SCCB的停止信号
 ***********************************************************************/
 bool SCCB_Stop(void)
 {
@@ -159,12 +159,12 @@ bool SCCB_Stop(void)
 }
 
 /***********************************************************************
-*@Function: 
-*@Input: 
+*@Function: SCCB_Ack
+*@Input: void
 *@Return: none
 *@Author: sola
 *@Date: 2019-12-04 00:05:30
-*@Drscription: 
+*@Drscription: SCCB的应答信号
 ***********************************************************************/
 bool SCCB_Ack(void)
 {
@@ -181,12 +181,12 @@ bool SCCB_Ack(void)
 }
 
 /***********************************************************************
-*@Function: 
-*@Input: 
+*@Function: SCCB_NoAck
+*@Input: void
 *@Return: none
 *@Author: sola
 *@Date: 2019-12-04 00:07:04
-*@Drscription: 
+*@Drscription: SCCB的非应答信号
 ***********************************************************************/
 bool SCCB_NoAck(void)
 {
@@ -203,12 +203,12 @@ bool SCCB_NoAck(void)
 }
 
 /***********************************************************************
-*@Function: 
-*@Input: 
+*@Function: SCCB_WaitAck
+*@Input: void
 *@Return: none
 *@Author: sola
 *@Date: 2019-12-04 00:08:30
-*@Drscription: 
+*@Drscription: SCCB应答等待信号
 ***********************************************************************/
 bool SCCB_WaitAck(void)
 {
@@ -233,12 +233,12 @@ bool SCCB_WaitAck(void)
 }
 
 /***********************************************************************
-*@Function: 
-*@Input: 
+*@Function: SCCB_SendByte
+*@Input: SendByte （uint8_t类型的数据）
 *@Return: none
 *@Author: sola
 *@Date: 2019-12-04 00:13:47
-*@Drscription: 
+*@Drscription: 发送一个字节
 ***********************************************************************/
 bool SCCB_SendByte(uint8_t SendByte)
 {
@@ -266,14 +266,14 @@ bool SCCB_SendByte(uint8_t SendByte)
 }
 
 /***********************************************************************
-*@Function: 
-*@Input: 
+*@Function: SCCB_ReceiveByte
+*@Input: void
 *@Return: none
 *@Author: sola
 *@Date: 2019-12-04 00:14:01
-*@Drscription: 
+*@Drscription: 接受一个字节的数据
 ***********************************************************************/
-bool SCCB_ReceiveByte(void)
+uint8_t SCCB_ReceiveByte(void)
 {
     uint8_t i = 8;
     uint8_t ReceiveByte = 0;
