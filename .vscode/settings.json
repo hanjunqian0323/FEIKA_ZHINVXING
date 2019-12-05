@@ -1,5 +1,10 @@
 {
     "files.associations": {
-        "fsl_gpio.h": "c"
+        "fsl_gpio.h": "c",
+        "sccb.h": "c",
+        "main.h": "c",
+        "fsl_device_registers.h": "c",
+        "fsl_common.h": "c",
+        "ov7725.h": "c"
     }
 }

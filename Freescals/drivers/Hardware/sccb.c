@@ -300,3 +300,128 @@ uint8_t SCCB_ReceiveByte(void)
     SCCB_SCL_OUT_L();
     return ReceiveByte;
 }
+
+/***********************************************************************
+*@Function: 
+*@Input: 
+*@Return: none
+*@Author: sola
+*@Date: 2019-12-05 02:24:11
+*@Drscription: 
+***********************************************************************/
+int SCCB_WriteByte_one( uint16_t WriteAddress , uint8_t SendByte )
+{
+    if(!SCCB_Start())
+    {
+        return 0;
+    }
+    SCCB_SendByte( DEV_ADR );                    /* 器件地址 */
+    if( !SCCB_WaitAck() )
+    {
+        SCCB_Stop();
+        return 0;
+    }
+    SCCB_SendByte((uint8_t)(WriteAddress & 0x00FF));   /* 设置低起始地址 */
+    SCCB_WaitAck();
+    SCCB_SendByte(SendByte);
+    SCCB_WaitAck();
+    SCCB_Stop();
+    return 1;
+}
+
+/***********************************************************************
+*@Function: 
+*@Input: 
+*@Return: none
+*@Author: sola
+*@Date: 2019-12-05 02:24:14
+*@Drscription: 
+***********************************************************************/
+int SCCB_WriteByte( uint16_t WriteAddress , uint8_t SendByte )            //考虑到用sccb的管脚模拟，比较容易失败，因此多试几次
+{
+    uint8_t i = 0;
+    while( 0 == SCCB_WriteByte_one ( WriteAddress, SendByte ) )
+    {
+        i++;
+        if(i == 20)
+        {
+            return 0 ;
+        }
+    }
+    return 1;
+}
+
+/***********************************************************************
+*@Function: 
+*@Input: 
+*@Return: none
+*@Author: sola
+*@Date: 2019-12-05 02:24:59
+*@Drscription: 
+***********************************************************************/
+int SCCB_ReadByte_one(uint8_t *pBuffer,   uint16_t length,   uint8_t ReadAddress)
+{
+    if(!SCCB_Start())
+    {
+        return 0;
+    }
+    SCCB_SendByte( DEV_ADR );         /* 器件地址 */
+    if( !SCCB_WaitAck() )
+    {
+        SCCB_Stop();
+        return 0;
+    }
+    SCCB_SendByte( ReadAddress );           /* 设置低起始地址 */
+    SCCB_WaitAck();
+    SCCB_Stop();
+
+    if(!SCCB_Start())
+    {
+        return 0;
+    }
+    SCCB_SendByte( DEV_ADR + 1 );               /* 器件地址 */
+
+    if(!SCCB_WaitAck())
+    {
+        SCCB_Stop();
+        return 0;
+    }
+    while(length)
+    {
+        *pBuffer = SCCB_ReceiveByte();
+        if(length == 1)
+        {
+            SCCB_NoAck();
+        }
+        else
+        {
+            SCCB_Ack();
+        }
+        pBuffer++;
+        length--;
+    }
+    SCCB_Stop();
+    return 1;
+}
+
+/***********************************************************************
+*@Function: 
+*@Input: 
+*@Return: none
+*@Author: sola
+*@Date: 2019-12-05 02:25:53
+*@Drscription: 
+***********************************************************************/
+int SCCB_ReadByte(uint8_t *pBuffer,uint16_t length,uint8_t ReadAddress)
+{
+    uint8_t i = 0;
+    while( 0 == SCCB_ReadByte_one(pBuffer, length, ReadAddress) )
+    {
+        i++;
+        if(i == 30)
+        {
+            return 0 ;
+        }
+    }
+    return 1;
+}

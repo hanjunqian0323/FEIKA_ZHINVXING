@@ -573,6 +573,16 @@
               <FileType>1</FileType>
               <FilePath>..\drivers\Hardware\led.c</FilePath>
             </File>
+            <File>
+              <FileName>sccb.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\drivers\Hardware\sccb.c</FilePath>
+            </File>
+            <File>
+              <FileName>ov7725.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\drivers\Hardware\ov7725.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
