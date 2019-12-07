@@ -5,8 +5,10 @@
 *@Drscription: 
 ***********************************************************************/
 #include "main.h"
- 
-
+extern LED_InitStruct  LED0;
+extern LED_InitStruct  LED1;
+extern LED_InitStruct  LED2;
+extern LED_InitStruct  LED3; 
 /***********************************************************************
 *@Function: main
 *@Input: void
@@ -16,8 +18,16 @@
 *@Drscription: 这是main函数，不用多说了吧
 ***********************************************************************/
 int main(void)
-{
-	
+{	
+	SYSTICK_INIT(176);
+	BOARD_InitPins();
+	board_clock_init();
+	BOARD_InitDebugConsole();
+	LED_Init();
+	LED_Off(LED0);
+	UART_INIT();
+	//SCCB_Init();
+	ov7725_eagle_reg_init();
 	while(1)
 	{
 		

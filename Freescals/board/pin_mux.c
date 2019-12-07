@@ -80,10 +80,10 @@ void BOARD_InitPins(void)
                      | PORT_PCR_PE(kPORT_PullDisable));
 
     /* PORTB16 (pin E10) is configured as UART0_RX */
-    PORT_SetPinMux(PORTB, 16U, kPORT_MuxAlt3);
+    //PORT_SetPinMux(PORTB, 16U, kPORT_MuxAlt3);
 
     /* PORTB17 (pin E9) is configured as UART0_TX */
-    PORT_SetPinMux(PORTB, 17U, kPORT_MuxAlt3);
+    //PORT_SetPinMux(PORTB, 17U, kPORT_MuxAlt3);
 
     SIM->SOPT5 = ((SIM->SOPT5 &
                    /* Mask bits to zero which are setting */

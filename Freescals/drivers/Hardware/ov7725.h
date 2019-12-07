@@ -184,4 +184,6 @@ typedef enum
 #define OV7725_DSPAuto   0xAC
 
 
+uint8_t ov7725_eagle_reg_init(void);
+
 #endif /* !__ov7725_h */

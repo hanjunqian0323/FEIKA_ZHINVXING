@@ -1,7 +1,7 @@
 #include "DELAY.h"
 
 //Global
-uint32_t SystickTimeCount;
+__IO uint32_t SystickTimeCount;
 
 void SYSTICK_INIT(uint16_t freq)		//176对应1us
 {
@@ -10,6 +10,7 @@ void SYSTICK_INIT(uint16_t freq)		//176对应1us
 
 void SysTick_Handler(void)
 {
+	if(SystickTimeCount != 0)
     SystickTimeCount --;
 }
 

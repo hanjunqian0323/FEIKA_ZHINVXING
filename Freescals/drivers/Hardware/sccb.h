@@ -7,7 +7,7 @@
 
 #include "main.h"
 
-#ifndef __sccb_h
+#ifndef _sccb_h
 #define __sccb_h
 
 #define SCCB_SCL_PIN        26U
@@ -24,6 +24,7 @@
 
 #define SCCB_SCL_OUT_H()    GPIO_PinWrite(SCCB_SCL_GPIO, SCCB_SCL_PIN, 1U)
 #define SCCB_SCL_OUT_L()    GPIO_PinWrite(SCCB_SCL_GPIO, SCCB_SCL_PIN, 0U)
+
 #define SCCB_SDA_OUT_H()    GPIO_PinWrite(SCCB_SDA_GPIO, SCCB_SDA_PIN, 1U)
 #define SCCB_SDA_OUT_L()    GPIO_PinWrite(SCCB_SDA_GPIO, SCCB_SDA_PIN, 0U)
 

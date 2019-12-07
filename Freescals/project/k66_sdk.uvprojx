@@ -54,7 +54,7 @@
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
           <DebugInformation>1</DebugInformation>
-          <BrowseInformation>0</BrowseInformation>
+          <BrowseInformation>1</BrowseInformation>
           <ListingPath>.\Listings\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
@@ -311,7 +311,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>1</Optim>
+            <Optim>0</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -337,7 +337,7 @@
               <MiscControls>--library_interface=armcc --diag_suppress=1296,186</MiscControls>
               <Define>DEBUG,CPU_MK66FX1M0VLQ18, PRINTF_FLOAT_ENABLE=0, SCANF_FLOAT_ENABLE=0, PRINTF_ADVANCED_ENABLE=0, SCANF_ADVANCED_ENABLE=0, FRDM_K66F, FREEDOM</Define>
               <Undefine></Undefine>
-              <IncludePath>..\board;..\components\lists;..\components\serial_manager;..\components\uart;..\drivers\arm;..\drivers\cmsis_drivers;..\drivers\drivers;..\source;..\startup;..\utilities\str;..\utilities\str;..\utilities\debug_console;..\drivers\CMSIS\Include;..\drivers\Hardware</IncludePath>
+              <IncludePath>..\board;..\components\lists;..\components\serial_manager;..\components\uart;..\drivers\arm;..\drivers\cmsis_drivers;..\drivers\drivers;..\source;..\startup;..\utilities\str;..\utilities\str;..\utilities\debug_console;..\drivers\CMSIS\Include;..\drivers\Hardware;..\..\driver_source\UART;..\..\driver_source\DELAY</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -581,6 +581,16 @@
               <FileName>ov7725.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\drivers\Hardware\ov7725.c</FilePath>
+            </File>
+            <File>
+              <FileName>UsART.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\driver_source\UART\UsART.c</FilePath>
+            </File>
+            <File>
+              <FileName>DELAY.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\driver_source\DELAY\DELAY.c</FilePath>
             </File>
           </Files>
         </Group>

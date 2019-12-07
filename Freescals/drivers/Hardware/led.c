@@ -19,7 +19,6 @@ LED_InitStruct  LED0 = NewLed();
 LED_InitStruct  LED1 = NewLed();
 LED_InitStruct  LED2 = NewLed();
 LED_InitStruct  LED3 = NewLed();
-
 /***********************************************************************
 *@Function: LED_GPIOInit
 *@Input: *p,*base,pin
@@ -44,15 +43,15 @@ void LED_GPIOInit(struct _led *p,GPIO_Type *base,uint32_t pin)
     {
         CLOCK_EnableClock(kCLOCK_PortB); PORT_base = PORTB;
     } 
-    else if (base == GPIOB) 
+    else if (base == GPIOC) 
     {
         CLOCK_EnableClock(kCLOCK_PortC); PORT_base = PORTC;
     }
-    else if (base == GPIOB)
+    else if (base == GPIOD)
     {
         CLOCK_EnableClock(kCLOCK_PortD); PORT_base = PORTD;
     } 
-    else if (base == GPIOB) 
+    else if (base == GPIOE) 
     {
         CLOCK_EnableClock(kCLOCK_PortE); PORT_base = PORTE;
     }

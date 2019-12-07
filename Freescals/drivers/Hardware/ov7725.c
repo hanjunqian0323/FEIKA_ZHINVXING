@@ -133,7 +133,7 @@ uint8_t ov7725_eagle_reg_init(void)
     //OV7725_Delay_ms(50);
     if( 0 == SCCB_WriteByte ( OV7725_COM7, 0x80 ) ) /*¸´Î»sensor */
     {
-       // DEBUG_PRINTF("\n¾¯¸æ:SCCBÐ´Êý¾Ý´íÎó");
+		printf("\n¾¯¸æ:SCCBÐ´Êý¾Ý´íÎó\n");
         return 0 ;
     }
 
@@ -141,18 +141,18 @@ uint8_t ov7725_eagle_reg_init(void)
 
     if( 0 == SCCB_ReadByte( &Sensor_IDCode, 1, OV7725_VER ) )    /* ¶ÁÈ¡sensor IDºÅ*/
     {
-       // DEBUG_PRINTF("\n¾¯¸æ:¶ÁÈ¡IDÊ§°Ü");
+        printf("\n¾¯¸æ:¶ÁÈ¡IDÊ§°Ü\n");
         return 0;
     }
-   // DEBUG_PRINTF("\nGet ID success£¬SENSOR ID is 0x%x", Sensor_IDCode);
-  //  DEBUG_PRINTF("\nConfig Register Number is %d ", ov7725_eagle_cfgnum);
+    printf("\nGet ID success£¬SENSOR ID is 0x%x", Sensor_IDCode);
+    printf("\nConfig Register Number is %d ", ov7725_eagle_cfgnum);
     if(Sensor_IDCode == OV7725_ID)
     {
         for( i = 0 ; i < ov7725_eagle_cfgnum ; i++ )
         {
             if( 0 == SCCB_WriteByte(ov7725_eagle_reg[i].addr, ov7725_eagle_reg[i].val) )
             {
-               // DEBUG_PRINTF("\n¾¯¸æ:Ð´¼Ä´æÆ÷0x%xÊ§°Ü", ov7725_eagle_reg[i].addr);
+                printf("\n¾¯¸æ:Ð´¼Ä´æÆ÷0x%xÊ§°Ü", ov7725_eagle_reg[i].addr);
                 return 0;
             }
         }
@@ -161,7 +161,7 @@ uint8_t ov7725_eagle_reg_init(void)
     {
         return 0;
     }
-    //DEBUG_PRINTF("\nOV7725 Register Config Success!");
+    printf("\nOV7725 Register Config Success!\n");
     return 1;
 }
 

@@ -15,6 +15,8 @@
 #include "pin_mux.h"
 #include "clock_config.h"
 
+#include <stdio.h>
+
 //SDK包
 #include "fsl_pit.h"
 #include "fsl_ftm.h"
@@ -26,6 +28,9 @@
 //自己定义
 #include "led.h"
 #include "sccb.h"
+#include "ov7725.h"
+#include "UsART.h"
+#include "DELAY.h"
 
 
 #define enable_irq(irq)                 NVIC_EnableIRQ(irq)         //使能IRQ
