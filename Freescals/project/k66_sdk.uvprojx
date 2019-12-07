@@ -54,7 +54,7 @@
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
           <DebugInformation>1</DebugInformation>
-          <BrowseInformation>1</BrowseInformation>
+          <BrowseInformation>0</BrowseInformation>
           <ListingPath>.\Listings\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
@@ -184,6 +184,7 @@
             <hadXRAM>0</hadXRAM>
             <uocXRam>0</uocXRam>
             <RvdsVP>2</RvdsVP>
+            <RvdsMve>0</RvdsMve>
             <hadIRAM2>1</hadIRAM2>
             <hadIROM2>1</hadIROM2>
             <StupSel>8</StupSel>
@@ -583,14 +584,14 @@
               <FilePath>..\drivers\Hardware\ov7725.c</FilePath>
             </File>
             <File>
-              <FileName>UsART.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\driver_source\UART\UsART.c</FilePath>
-            </File>
-            <File>
               <FileName>DELAY.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\driver_source\DELAY\DELAY.c</FilePath>
+            </File>
+            <File>
+              <FileName>usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\drivers\Hardware\usart.c</FilePath>
             </File>
           </Files>
         </Group>

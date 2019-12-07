@@ -6,7 +6,7 @@
 ***********************************************************************/
 #include "sccb.h"
 
-#define DELAY_TIME			400 
+#define DELAY_TIME			5 
 /***********************************************************************
 *@Function: SCCB_Delay
 *@Input: tim(0-65535)
@@ -109,14 +109,14 @@ void SCCB_MODE_CHANGE(uint8_t mode)
 bool SCCB_Start(void)
 {
     SCCB_SDA_OUT_H();
-    SCCB_SCL_OUT_L();
+    SCCB_SCL_OUT_H();
     DELAY_US(DELAY_TIME);
 
     SCCB_MODE_CHANGE(0);
     if(!SCCB_SDA_IN())
     {
         SCCB_MODE_CHANGE(1); 
-        printf("SDA 为低电平，错误\n");
+        DEBUG_PRINTF("SDA 为低电平，错误\n");
         return 0;
     }
     SCCB_MODE_CHANGE(1);
@@ -129,7 +129,7 @@ bool SCCB_Start(void)
     if(SCCB_SDA_IN())
     {
         SCCB_MODE_CHANGE(1); 
-		printf("SDA 为高电平，错误\n");
+		DEBUG_PRINTF("SDA 为高电平，错误\n");
         return 0;
     }
 
@@ -148,10 +148,10 @@ bool SCCB_Start(void)
 bool SCCB_Stop(void)
 {
     SCCB_SCL_OUT_L();
-    //SCCB_DELAY();
 	DELAY_US(DELAY_TIME);
     SCCB_SDA_OUT_L();
     DELAY_US(DELAY_TIME);
+
     SCCB_SCL_OUT_H();
     DELAY_US(DELAY_TIME);
     SCCB_SDA_OUT_H();
@@ -320,9 +320,9 @@ int SCCB_WriteByte_one( uint16_t WriteAddress , uint8_t SendByte )
 	
     SCCB_SendByte( DEV_ADR );                    /* 器件地址 */
 	
-    if( !SCCB_WaitAck() )
+    if( SCCB_WaitAck() != true)
     {
-		printf("\nSCCB写数据应答失败\n");
+		DEBUG_PRINTF("\nSCCB写数据应答失败\n");
         SCCB_Stop();
         return 0;
     }

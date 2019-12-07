@@ -12,7 +12,7 @@
 #define ARR_SIZE( a ) ( sizeof( (a) ) / sizeof( ((a)[0]) ) )
 
 #define OV7725_EAGLE_Delay_ms(time)  
-
+ 
 
 typedef struct
 {
