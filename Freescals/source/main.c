@@ -30,7 +30,7 @@ int main(void)
 	ov7725_eagle_reg_init();
 	while(1)
 	{
-		
+		printf("hello");
 	}
 }
 
