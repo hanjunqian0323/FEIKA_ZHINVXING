@@ -1,15 +1,23 @@
+/***********************************************************************
+*@Author: sola
+*@Date: 2019-12-04 10:23:58
+*@FilePath: \FEIKA_ZHINVXING\driver_source\DELAY\DELAY.c
+*@Drscription: 
+***********************************************************************/
 #include "DELAY.h"
 
 //Global
-uint32_t SystickTimeCount;
+__IO uint32_t SystickTimeCount;
 
-void SYSTICK_INIT(uint16_t freq)		//176对应1us
+void SYSTICK_INIT(uint16_t freq)		//180对应1us
 {
 	SysTick_Config(freq); 
 }
 
 void SysTick_Handler(void)
 {
+	if(SystickTimeCount != 0)
+    
     SystickTimeCount --;
 }
 

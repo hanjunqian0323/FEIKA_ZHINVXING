@@ -5,6 +5,9 @@
         "main.h": "c",
         "fsl_device_registers.h": "c",
         "fsl_common.h": "c",
-        "ov7725.h": "c"
-    }
+        "ov7725.h": "c",
+        "usart.h": "c",
+        "uart.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }

@@ -6,7 +6,7 @@
 ***********************************************************************/
 #include "sccb.h"
 
-
+#define DELAY_TIME			5 
 /***********************************************************************
 *@Function: SCCB_Delay
 *@Input: tim(0-65535)
@@ -68,8 +68,8 @@ bool SCCB_Init(void)
     */
     sccb_gpio_config.pinDirection = kGPIO_DigitalOutput; 
     sccb_gpio_config.outputLogic = 1U; 
-    GPIO_PinInit(SCCB_SCL_GPIO, SCCB_SCL_CLK, &sccb_gpio_config);
-
+    GPIO_PinInit(SCCB_SDA_GPIO, SCCB_SDA_PIN, &sccb_gpio_config);
+	GPIO_PinInit(SCCB_SCL_GPIO, SCCB_SCL_PIN, &sccb_gpio_config);
     return true;
 }
 
@@ -89,12 +89,12 @@ void SCCB_MODE_CHANGE(uint8_t mode)
     {
         sccb_gpio_config.pinDirection = kGPIO_DigitalOutput; 
         sccb_gpio_config.outputLogic = 1U; 
-        GPIO_PinInit(SCCB_SCL_GPIO, SCCB_SCL_CLK, &sccb_gpio_config);
+        GPIO_PinInit(SCCB_SDA_GPIO, SCCB_SDA_PIN, &sccb_gpio_config);
     }
     else
     {
         sccb_gpio_config.pinDirection = kGPIO_DigitalInput;
-        GPIO_PinInit(SCCB_SCL_GPIO, SCCB_SCL_CLK, &sccb_gpio_config);
+        GPIO_PinInit(SCCB_SDA_GPIO, SCCB_SDA_PIN, &sccb_gpio_config);
     }
 }
 
@@ -108,31 +108,32 @@ void SCCB_MODE_CHANGE(uint8_t mode)
 ***********************************************************************/
 bool SCCB_Start(void)
 {
-
     SCCB_SDA_OUT_H();
-    SCCB_SCL_OUT_L();
-    SCCB_Delay(400);
+    SCCB_SCL_OUT_H();
+    DELAY_US(DELAY_TIME);
 
     SCCB_MODE_CHANGE(0);
     if(!SCCB_SDA_IN())
     {
         SCCB_MODE_CHANGE(1); 
-        
+        DEBUG_PRINTF("SDA 为低电平，错误\n");
         return 0;
     }
     SCCB_MODE_CHANGE(1);
     SCCB_SDA_OUT_L();
 
-    SCCB_Delay(400);
+    DELAY_US(DELAY_TIME);
     SCCB_SCL_OUT_L();
 
-    SCCB_MODE_CHANGE(0);
+    //SCCB_MODE_CHANGE(0);
     if(SCCB_SDA_IN())
     {
         SCCB_MODE_CHANGE(1); 
+		DEBUG_PRINTF("SDA 为高电平，错误\n");
         return 0;
     }
 
+	//printf("start sucess\n");
     return true;
 }
 
@@ -147,13 +148,14 @@ bool SCCB_Start(void)
 bool SCCB_Stop(void)
 {
     SCCB_SCL_OUT_L();
-    //SCCB_DELAY();
+	DELAY_US(DELAY_TIME);
     SCCB_SDA_OUT_L();
-    SCCB_Delay(400);
+    DELAY_US(DELAY_TIME);
+
     SCCB_SCL_OUT_H();
-    SCCB_Delay(400);
+    DELAY_US(DELAY_TIME);
     SCCB_SDA_OUT_H();
-    SCCB_Delay(400);
+    DELAY_US(DELAY_TIME);
 
     return true;
 }
@@ -169,13 +171,13 @@ bool SCCB_Stop(void)
 bool SCCB_Ack(void)
 {
     SCCB_SCL_OUT_L();
-    SCCB_Delay(400);
+    DELAY_US(DELAY_TIME);
     SCCB_SDA_OUT_L();
-    SCCB_Delay(400);
+    DELAY_US(DELAY_TIME);
     SCCB_SCL_OUT_H();
-    SCCB_Delay(400);
+    DELAY_US(DELAY_TIME);
     SCCB_SCL_OUT_L();
-    SCCB_Delay(400);
+    DELAY_US(DELAY_TIME);
 
     return true;
 }
@@ -191,13 +193,13 @@ bool SCCB_Ack(void)
 bool SCCB_NoAck(void)
 {
     SCCB_SCL_OUT_L();
-    SCCB_Delay(400);
+    DELAY_US(DELAY_TIME);
     SCCB_SDA_OUT_H();
-    SCCB_Delay(400);
+    DELAY_US(DELAY_TIME);
     SCCB_SCL_OUT_H();
-    SCCB_Delay(400);
+    DELAY_US(DELAY_TIME);
     SCCB_SCL_OUT_L();
-    SCCB_Delay(400);
+    DELAY_US(DELAY_TIME);
 
     return true;
 }
@@ -213,13 +215,13 @@ bool SCCB_NoAck(void)
 bool SCCB_WaitAck(void)
 {
     SCCB_SCL_OUT_L();
-    //SDA_H();
+    SCCB_SDA_OUT_L();
     SCCB_MODE_CHANGE(0);
-
-    SCCB_Delay(400);
+	
+    DELAY_US(DELAY_TIME);
     SCCB_SCL_OUT_H();
 
-    SCCB_Delay(400);
+    DELAY_US(DELAY_TIME);
 
     if(SCCB_SDA_IN())           //应答为高电平，异常，通信失败
     {
@@ -243,9 +245,10 @@ bool SCCB_WaitAck(void)
 bool SCCB_SendByte(uint8_t SendByte)
 {
     uint8_t i = 8;
+	SCCB_MODE_CHANGE(1);
+	SCCB_SCL_OUT_L();
     while(i--)
     {
-
         if(SendByte & 0x80)     //SDA 输出数据
         {
             SCCB_SDA_OUT_H();
@@ -255,13 +258,12 @@ bool SCCB_SendByte(uint8_t SendByte)
             SCCB_SDA_OUT_L();;
         }
         SendByte <<= 1;
-        SCCB_Delay(400);
+        DELAY_US(DELAY_TIME);
         SCCB_SCL_OUT_H();                //SCL 拉高，采集信号
-        SCCB_Delay(400);
+        DELAY_US(DELAY_TIME);
         SCCB_SCL_OUT_L();                //SCL 时钟线拉低
         //SCCB_DELAY();
     }
-    //SCL_L();
     return true;
 }
 
@@ -285,9 +287,9 @@ uint8_t SCCB_ReceiveByte(void)
     {
         ReceiveByte <<= 1;
         SCCB_SCL_OUT_L();
-        SCCB_Delay(400);
+        DELAY_US(DELAY_TIME);
         SCCB_SCL_OUT_H();
-        SCCB_Delay(400);
+        DELAY_US(DELAY_TIME);
 
         if(SCCB_SDA_IN())
         {
@@ -315,16 +317,24 @@ int SCCB_WriteByte_one( uint16_t WriteAddress , uint8_t SendByte )
     {
         return 0;
     }
+	
     SCCB_SendByte( DEV_ADR );                    /* 器件地址 */
-    if( !SCCB_WaitAck() )
+	
+    if( SCCB_WaitAck() != true)
     {
+		DEBUG_PRINTF("\nSCCB写数据应答失败\n");
         SCCB_Stop();
         return 0;
     }
+	
     SCCB_SendByte((uint8_t)(WriteAddress & 0x00FF));   /* 设置低起始地址 */
-    SCCB_WaitAck();
+	
+	SCCB_WaitAck();
+	
     SCCB_SendByte(SendByte);
+	
     SCCB_WaitAck();
+
     SCCB_Stop();
     return 1;
 }
@@ -337,7 +347,7 @@ int SCCB_WriteByte_one( uint16_t WriteAddress , uint8_t SendByte )
 *@Date: 2019-12-05 02:24:14
 *@Drscription: 
 ***********************************************************************/
-int SCCB_WriteByte( uint16_t WriteAddress , uint8_t SendByte )            //考虑到用sccb的管脚模拟，比较容易失败，因此多试几次
+int SCCB_WriteByte( uint16_t WriteAddress , uint8_t SendByte )//考虑到用sccb的管脚模拟，比较容易失败，因此多试几次
 {
     uint8_t i = 0;
     while( 0 == SCCB_WriteByte_one ( WriteAddress, SendByte ) )

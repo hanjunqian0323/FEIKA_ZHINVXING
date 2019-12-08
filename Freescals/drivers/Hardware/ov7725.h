@@ -12,7 +12,7 @@
 #define ARR_SIZE( a ) ( sizeof( (a) ) / sizeof( ((a)[0]) ) )
 
 #define OV7725_EAGLE_Delay_ms(time)  
-
+ 
 
 typedef struct
 {
@@ -183,5 +183,7 @@ typedef enum
 #define OV7725_SIGN      0xAB
 #define OV7725_DSPAuto   0xAC
 
+
+uint8_t ov7725_eagle_reg_init(void);
 
 #endif /* !__ov7725_h */
