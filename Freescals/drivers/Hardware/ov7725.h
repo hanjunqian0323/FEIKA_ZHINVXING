@@ -12,7 +12,7 @@
 #define ARR_SIZE( a ) ( sizeof( (a) ) / sizeof( ((a)[0]) ) )
 
 #define OV7725_EAGLE_Delay_ms(time)  
-
+ 
 
 typedef struct
 {
@@ -183,7 +183,12 @@ typedef enum
 #define OV7725_SIGN      0xAB
 #define OV7725_DSPAuto   0xAC
 
-
+/*中断服务函数宏定义*/
+#define ov7725_eagle_dma            DMA0_DMA16_IRQHandler
+#define ov7725_eagle_vsync          PORTA_IRQHandler
+/*函数初始化*/
 uint8_t ov7725_eagle_reg_init(void);
-
+uint8_t ov7725_eagle_init(uint8_t *imgaddr);
+void Crmera_Pin_init(void);
+void ov7725_eagle_get_img(void);
 #endif /* !__ov7725_h */

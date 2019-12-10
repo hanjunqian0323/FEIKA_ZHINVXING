@@ -1,3 +1,9 @@
+/***********************************************************************
+*@Author: sola
+*@Date: 2019-12-04 10:23:58
+*@FilePath: \FEIKA_ZHINVXING\Freescals\board\pin_mux.c
+*@Drscription: 
+***********************************************************************/
 /*
  * Copyright (c) 2016, Freescale Semiconductor, Inc.
  * Copyright 2016-2019 NXP
@@ -66,7 +72,7 @@ void BOARD_InitPins(void)
 	CLOCK_EnableClock(kCLOCK_Dma0);//³õÊ¼»¯dmaÊ±ÖÓ
 
     /* PORTA2 (pin K6) is configured as TRACE_SWO */
-    PORT_SetPinMux(PORTA, 2U, kPORT_MuxAlt7);
+    //PORT_SetPinMux(PORTA, 2U, kPORT_MuxAlt7);
 
     PORTA->PCR[2] = ((PORTA->PCR[2] &
                       /* Mask bits to zero which are setting */
@@ -79,11 +85,11 @@ void BOARD_InitPins(void)
                      /* Pull Enable: Internal pullup or pulldown resistor is not enabled on the corresponding pin. */
                      | PORT_PCR_PE(kPORT_PullDisable));
 
-    /* PORTB16 (pin E10) is configured as UART0_RX */
-    //PORT_SetPinMux(PORTB, 16U, kPORT_MuxAlt3);
+    /* PORTA1 (pin A1) is configured as UART0_RX */
+    PORT_SetPinMux(PORTA, 1U, kPORT_MuxAlt2);
 
-    /* PORTB17 (pin E9) is configured as UART0_TX */
-    //PORT_SetPinMux(PORTB, 17U, kPORT_MuxAlt3);
+    /* PORTA2 (pin A2) is configured as UART0_TX */
+    PORT_SetPinMux(PORTA, 2U, kPORT_MuxAlt2);
 
     SIM->SOPT5 = ((SIM->SOPT5 &
                    /* Mask bits to zero which are setting */

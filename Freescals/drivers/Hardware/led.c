@@ -31,7 +31,7 @@ void LED_GPIOInit(struct _led *p,GPIO_Type *base,uint32_t pin)
 {
     gpio_pin_config_t config ={
         kGPIO_DigitalOutput,
-        0,
+        1,
     };
     PORT_Type *PORT_base;
 
