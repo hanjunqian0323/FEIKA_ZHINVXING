@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\k66_sdk.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\k66_sdk.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Tue Dec 10 21:27:34 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Dec 15 09:53:53 2019
 <BR><P>
 <H3>Maximum Stack Usage =        168 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -12,14 +12,13 @@ main &rArr; BOARD_InitDebugConsole &rArr; DbgConsole_Init &rArr; SerialManager_I
 <H3>
 Mutually Recursive functions
 </H3> <LI><a href="#[2]">NMI_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[2]">NMI_Handler</a><BR>
- <LI><a href="#[3]">HardFault_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[3]">HardFault_Handler</a><BR>
  <LI><a href="#[4]">MemManage_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[4]">MemManage_Handler</a><BR>
  <LI><a href="#[5]">BusFault_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[5]">BusFault_Handler</a><BR>
  <LI><a href="#[6]">UsageFault_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[6]">UsageFault_Handler</a><BR>
  <LI><a href="#[7]">SVC_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[7]">SVC_Handler</a><BR>
  <LI><a href="#[8]">DebugMon_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[8]">DebugMon_Handler</a><BR>
  <LI><a href="#[9]">PendSV_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[9]">PendSV_Handler</a><BR>
- <LI><a href="#[d5]">Error_Handle</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[d5]">Error_Handle</a><BR>
+ <LI><a href="#[d3]">Error_Handle</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[d3]">Error_Handle</a><BR>
 </UL>
 <P>
 <H3>
@@ -99,7 +98,7 @@ Function Pointers
  <LI><a href="#[36]">FTM1_IRQHandler</a> from startup_mk66f18.o(.text) referenced from startup_mk66f18.o(RESET)
  <LI><a href="#[37]">FTM2_IRQHandler</a> from startup_mk66f18.o(.text) referenced from startup_mk66f18.o(RESET)
  <LI><a href="#[52]">FTM3_IRQHandler</a> from startup_mk66f18.o(.text) referenced from startup_mk66f18.o(RESET)
- <LI><a href="#[3]">HardFault_Handler</a> from startup_mk66f18.o(.text) referenced from startup_mk66f18.o(RESET)
+ <LI><a href="#[3]">HardFault_Handler</a> from main.o(i.HardFault_Handler) referenced from startup_mk66f18.o(RESET)
  <LI><a href="#[84]">I2C0_DriverIRQHandler</a> from startup_mk66f18.o(.text) referenced from startup_mk66f18.o(.text)
  <LI><a href="#[23]">I2C0_IRQHandler</a> from startup_mk66f18.o(.text) referenced from startup_mk66f18.o(RESET)
  <LI><a href="#[85]">I2C1_DriverIRQHandler</a> from startup_mk66f18.o(.text) referenced from startup_mk66f18.o(.text)
@@ -185,7 +184,7 @@ Function Pointers
  <LI><a href="#[6]">UsageFault_Handler</a> from startup_mk66f18.o(.text) referenced from startup_mk66f18.o(RESET)
  <LI><a href="#[21]">WDOG_EWM_IRQHandler</a> from startup_mk66f18.o(.text) referenced from startup_mk66f18.o(RESET)
  <LI><a href="#[72]">__main</a> from entry.o(.ARM.Collect$$$$00000000) referenced from startup_mk66f18.o(.text)
- <LI><a href="#[9f]">fputc</a> from usart.o(i.fputc) referenced from printf5.o(i.__0printf$5)
+ <LI><a href="#[9f]">fputc</a> from usart.o(i.fputc) referenced from printf1.o(i.__0printf$1)
  <LI><a href="#[70]">main</a> from main.o(i.main) referenced from entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
 <P>
@@ -201,7 +200,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[aa]"></a>__main_after_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
+<P><STRONG><a name="[a7]"></a>__main_after_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
@@ -222,13 +221,6 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NMI_Handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NMI_Handler
-</UL>
-<BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(RESET)
-</UL>
-<P><STRONG><a name="[3]"></a>HardFault_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_mk66f18.o(.text))
-<BR><BR>[Calls]<UL><LI><a href="#[3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HardFault_Handler
-</UL>
-<BR>[Called By]<UL><LI><a href="#[3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HardFault_Handler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(RESET)
 </UL>
@@ -651,8 +643,8 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
 </UL>
 
-<P><STRONG><a name="[d1]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Init
+<P><STRONG><a name="[cf]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Init
 </UL>
 
 <P><STRONG><a name="[107]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
@@ -661,381 +653,369 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
 </UL>
 
-<P><STRONG><a name="[a7]"></a>__aeabi_uldivmod</STRONG> (Thumb, 98 bytes, Stack size 40 bytes, uldiv.o(.text), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
-<LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
-</UL>
-<BR>[Called By]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<P><STRONG><a name="[108]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
+
+<P><STRONG><a name="[f5]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
 <P><STRONG><a name="[a3]"></a>__scatterload</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, init.o(.text))
-<BR><BR>[Calls]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main_after_scatterload
+<BR><BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main_after_scatterload
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[108]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[109]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
-<P><STRONG><a name="[a9]"></a>__aeabi_llsl</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, llshl.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
-</UL>
-
-<P><STRONG><a name="[109]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llshl.o(.text), UNUSED)
-
-<P><STRONG><a name="[a8]"></a>__aeabi_llsr</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
-</UL>
-
-<P><STRONG><a name="[10a]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llushr.o(.text), UNUSED)
-
-<P><STRONG><a name="[ab]"></a>BOARD_BootClockRUN</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, clock_config.o(i.BOARD_BootClockRUN))
+<P><STRONG><a name="[a8]"></a>BOARD_BootClockRUN</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, clock_config.o(i.BOARD_BootClockRUN))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = BOARD_BootClockRUN &rArr; CLOCK_BootToPeeMode &rArr; CLOCK_SetPbeMode &rArr; CLOCK_EnablePll0
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SMC_SetPowerModeHsrun
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_SetSimConfig
-<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_InitOsc0
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_BootToPeeMode
+<BR>[Calls]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SMC_SetPowerModeHsrun
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_SetSimConfig
+<LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_InitOsc0
+<LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_BootToPeeMode
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitBootClocks
+<BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitBootClocks
 </UL>
 
-<P><STRONG><a name="[b0]"></a>BOARD_InitBootClocks</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, clock_config.o(i.BOARD_InitBootClocks))
+<P><STRONG><a name="[ad]"></a>BOARD_InitBootClocks</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, clock_config.o(i.BOARD_InitBootClocks))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = BOARD_InitBootClocks &rArr; BOARD_BootClockRUN &rArr; CLOCK_BootToPeeMode &rArr; CLOCK_SetPbeMode &rArr; CLOCK_EnablePll0
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockRUN
+<BR>[Calls]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockRUN
 </UL>
 <BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[b1]"></a>BOARD_InitDebugConsole</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, board.o(i.BOARD_InitDebugConsole))
+<P><STRONG><a name="[ae]"></a>BOARD_InitDebugConsole</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, board.o(i.BOARD_InitDebugConsole))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = BOARD_InitDebugConsole &rArr; DbgConsole_Init &rArr; SerialManager_Init &rArr; Serial_UartInit &rArr; HAL_UartInit &rArr; UART_Init &rArr; UART_GetInstance
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Init
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
+<BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Init
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
 </UL>
 <BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[b4]"></a>BOARD_InitPins</STRONG> (Thumb, 86 bytes, Stack size 8 bytes, pin_mux.o(i.BOARD_InitPins))
+<P><STRONG><a name="[b1]"></a>BOARD_InitPins</STRONG> (Thumb, 86 bytes, Stack size 8 bytes, pin_mux.o(i.BOARD_InitPins))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = BOARD_InitPins
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_EnableClock
+<BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_EnableClock
 </UL>
 <BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[b6]"></a>BlueTooes_UART_Init</STRONG> (Thumb, 46 bytes, Stack size 24 bytes, usart.o(i.BlueTooes_UART_Init))
+<P><STRONG><a name="[b3]"></a>BlueTooes_UART_Init</STRONG> (Thumb, 46 bytes, Stack size 24 bytes, usart.o(i.BlueTooes_UART_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = BlueTooes_UART_Init &rArr; CLOCK_GetFreq &rArr; CLOCK_GetPllFllSelClkFreq &rArr; CLOCK_GetFllFreq &rArr; CLOCK_GetFllRefClkFreq &rArr; CLOCK_GetMcgExtClkFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
-<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_GetDefaultConfig
-<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Pin_Init
+<BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Pin_Init
+<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_GetDefaultConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[ae]"></a>CLOCK_BootToPeeMode</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, fsl_clock.o(i.CLOCK_BootToPeeMode))
+<P><STRONG><a name="[ab]"></a>CLOCK_BootToPeeMode</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, fsl_clock.o(i.CLOCK_BootToPeeMode))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = CLOCK_BootToPeeMode &rArr; CLOCK_SetPbeMode &rArr; CLOCK_EnablePll0
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_SetPbeMode
-<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_SetExternalRefClkConfig
+<BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_SetPbeMode
+<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_SetExternalRefClkConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockRUN
+<BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockRUN
 </UL>
 
-<P><STRONG><a name="[c9]"></a>CLOCK_EnablePll0</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_EnablePll0))
+<P><STRONG><a name="[c6]"></a>CLOCK_EnablePll0</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_EnablePll0))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = CLOCK_EnablePll0
 </UL>
-<BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_SetPbeMode
+<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_SetPbeMode
 </UL>
 
-<P><STRONG><a name="[b2]"></a>CLOCK_GetCoreSysClkFreq</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetCoreSysClkFreq))
+<P><STRONG><a name="[af]"></a>CLOCK_GetCoreSysClkFreq</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetCoreSysClkFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = CLOCK_GetCoreSysClkFreq &rArr; CLOCK_GetOutClkFreq &rArr; CLOCK_GetFllFreq &rArr; CLOCK_GetFllRefClkFreq &rArr; CLOCK_GetMcgExtClkFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetOutClkFreq
+<BR>[Calls]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetOutClkFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitDebugConsole
+<BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitDebugConsole
 </UL>
 
-<P><STRONG><a name="[be]"></a>CLOCK_GetEr32kClkFreq</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetEr32kClkFreq))
+<P><STRONG><a name="[bb]"></a>CLOCK_GetEr32kClkFreq</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetEr32kClkFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = CLOCK_GetEr32kClkFreq &rArr; CLOCK_GetOsc0ErClkDivFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetOsc0ErClkDivFreq
+<BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetOsc0ErClkDivFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 </UL>
 
-<P><STRONG><a name="[c0]"></a>CLOCK_GetFixedFreqClkFreq</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetFixedFreqClkFreq))
+<P><STRONG><a name="[bd]"></a>CLOCK_GetFixedFreqClkFreq</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetFixedFreqClkFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = CLOCK_GetFixedFreqClkFreq &rArr; CLOCK_GetOutClkFreq &rArr; CLOCK_GetFllFreq &rArr; CLOCK_GetFllRefClkFreq &rArr; CLOCK_GetMcgExtClkFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetOutClkFreq
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFllRefClkFreq
+<BR>[Calls]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetOutClkFreq
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFllRefClkFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 </UL>
 
-<P><STRONG><a name="[c2]"></a>CLOCK_GetFllFreq</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetFllFreq))
+<P><STRONG><a name="[bf]"></a>CLOCK_GetFllFreq</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetFllFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = CLOCK_GetFllFreq &rArr; CLOCK_GetFllRefClkFreq &rArr; CLOCK_GetMcgExtClkFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFllRefClkFreq
+<BR>[Calls]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFllRefClkFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllFllSelClkFreq
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetOutClkFreq
-<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllFllSelClkFreq
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetOutClkFreq
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 </UL>
 
-<P><STRONG><a name="[b9]"></a>CLOCK_GetFreq</STRONG> (Thumb, 166 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetFreq))
+<P><STRONG><a name="[b6]"></a>CLOCK_GetFreq</STRONG> (Thumb, 166 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = CLOCK_GetFreq &rArr; CLOCK_GetPllFllSelClkFreq &rArr; CLOCK_GetFllFreq &rArr; CLOCK_GetFllRefClkFreq &rArr; CLOCK_GetMcgExtClkFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllFllSelClkFreq
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPll0Freq
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetOutClkFreq
-<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetOsc0ErClkUndivFreq
-<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetOsc0ErClkDivFreq
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetInternalRefClkFreq
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFllFreq
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFixedFreqClkFreq
-<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetEr32kClkFreq
+<BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllFllSelClkFreq
+<LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPll0Freq
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetOutClkFreq
+<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetOsc0ErClkUndivFreq
+<LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetOsc0ErClkDivFreq
+<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetInternalRefClkFreq
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFllFreq
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFixedFreqClkFreq
+<LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetEr32kClkFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BlueTooes_UART_Init
+<BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BlueTooes_UART_Init
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c6]"></a>CLOCK_GetInternalRefClkFreq</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_GetInternalRefClkFreq))
-<BR><BR>[Calls]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetInternalRefClkSelectFreq
+<P><STRONG><a name="[c3]"></a>CLOCK_GetInternalRefClkFreq</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_GetInternalRefClkFreq))
+<BR><BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetInternalRefClkSelectFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 </UL>
 
-<P><STRONG><a name="[bf]"></a>CLOCK_GetOsc0ErClkDivFreq</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetOsc0ErClkDivFreq))
+<P><STRONG><a name="[bc]"></a>CLOCK_GetOsc0ErClkDivFreq</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetOsc0ErClkDivFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = CLOCK_GetOsc0ErClkDivFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetEr32kClkFreq
-<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<BR>[Called By]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetEr32kClkFreq
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 </UL>
 
-<P><STRONG><a name="[c5]"></a>CLOCK_GetOsc0ErClkUndivFreq</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetOsc0ErClkUndivFreq))
+<P><STRONG><a name="[c2]"></a>CLOCK_GetOsc0ErClkUndivFreq</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetOsc0ErClkUndivFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = CLOCK_GetOsc0ErClkUndivFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 </UL>
 
-<P><STRONG><a name="[bd]"></a>CLOCK_GetOutClkFreq</STRONG> (Thumb, 58 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_GetOutClkFreq))
+<P><STRONG><a name="[ba]"></a>CLOCK_GetOutClkFreq</STRONG> (Thumb, 58 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_GetOutClkFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = CLOCK_GetOutClkFreq &rArr; CLOCK_GetFllFreq &rArr; CLOCK_GetFllRefClkFreq &rArr; CLOCK_GetMcgExtClkFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPll0Freq
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFllFreq
-<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetMcgExtClkFreq
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetInternalRefClkSelectFreq
+<BR>[Calls]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPll0Freq
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFllFreq
+<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetMcgExtClkFreq
+<LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetInternalRefClkSelectFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFixedFreqClkFreq
-<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
-<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<BR>[Called By]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFixedFreqClkFreq
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetCoreSysClkFreq
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 </UL>
 
-<P><STRONG><a name="[c7]"></a>CLOCK_GetPll0Freq</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetPll0Freq))
+<P><STRONG><a name="[c4]"></a>CLOCK_GetPll0Freq</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetPll0Freq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = CLOCK_GetPll0Freq &rArr; CLOCK_GetMcgExtClkFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetMcgExtClkFreq
+<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetMcgExtClkFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllFllSelClkFreq
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetOutClkFreq
-<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPllFllSelClkFreq
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetOutClkFreq
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 </UL>
 
-<P><STRONG><a name="[c4]"></a>CLOCK_GetPllFllSelClkFreq</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetPllFllSelClkFreq))
+<P><STRONG><a name="[c1]"></a>CLOCK_GetPllFllSelClkFreq</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetPllFllSelClkFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = CLOCK_GetPllFllSelClkFreq &rArr; CLOCK_GetFllFreq &rArr; CLOCK_GetFllRefClkFreq &rArr; CLOCK_GetMcgExtClkFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPll0Freq
-<LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFllFreq
+<BR>[Calls]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPll0Freq
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFllFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
 </UL>
 
-<P><STRONG><a name="[ad]"></a>CLOCK_InitOsc0</STRONG> (Thumb, 102 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_InitOsc0))
+<P><STRONG><a name="[aa]"></a>CLOCK_InitOsc0</STRONG> (Thumb, 102 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_InitOsc0))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = CLOCK_InitOsc0
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockRUN
+<BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockRUN
 </UL>
 
-<P><STRONG><a name="[bb]"></a>CLOCK_SetExternalRefClkConfig</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_SetExternalRefClkConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_BootToPeeMode
+<P><STRONG><a name="[b8]"></a>CLOCK_SetExternalRefClkConfig</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_SetExternalRefClkConfig))
+<BR><BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_BootToPeeMode
 </UL>
 
-<P><STRONG><a name="[bc]"></a>CLOCK_SetPbeMode</STRONG> (Thumb, 116 bytes, Stack size 16 bytes, fsl_clock.o(i.CLOCK_SetPbeMode))
+<P><STRONG><a name="[b9]"></a>CLOCK_SetPbeMode</STRONG> (Thumb, 116 bytes, Stack size 16 bytes, fsl_clock.o(i.CLOCK_SetPbeMode))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = CLOCK_SetPbeMode &rArr; CLOCK_EnablePll0
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_EnablePll0
+<BR>[Calls]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_EnablePll0
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_BootToPeeMode
+<BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_BootToPeeMode
 </UL>
 
-<P><STRONG><a name="[af]"></a>CLOCK_SetSimConfig</STRONG> (Thumb, 50 bytes, Stack size 12 bytes, fsl_clock.o(i.CLOCK_SetSimConfig))
+<P><STRONG><a name="[ac]"></a>CLOCK_SetSimConfig</STRONG> (Thumb, 50 bytes, Stack size 12 bytes, fsl_clock.o(i.CLOCK_SetSimConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = CLOCK_SetSimConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockRUN
+<BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockRUN
 </UL>
 
-<P><STRONG><a name="[ca]"></a>Crmera_Pin_init</STRONG> (Thumb, 110 bytes, Stack size 16 bytes, ov7725.o(i.Crmera_Pin_init))
+<P><STRONG><a name="[c7]"></a>Crmera_Pin_init</STRONG> (Thumb, 110 bytes, Stack size 16 bytes, ov7725.o(i.Crmera_Pin_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = Crmera_Pin_init &rArr; PORT_SetPinConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORT_SetPinConfig
+<BR>[Calls]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORT_SetPinConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ov7725_eagle_port_init
 </UL>
 
-<P><STRONG><a name="[cc]"></a>DELAY_MS</STRONG> (Thumb, 22 bytes, Stack size 4 bytes, delay.o(i.DELAY_MS))
+<P><STRONG><a name="[c9]"></a>DELAY_MS</STRONG> (Thumb, 22 bytes, Stack size 4 bytes, delay.o(i.DELAY_MS))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = DELAY_MS
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DELAY_US
+<BR>[Calls]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DELAY_US
 </UL>
 <BR>[Called By]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ov7725_eagle_reg_init
 </UL>
 
-<P><STRONG><a name="[cd]"></a>DELAY_US</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, delay.o(i.DELAY_US))
-<BR><BR>[Called By]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_NoAck
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Ack
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DELAY_MS
-<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_WaitAck
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Stop
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Start
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_SendByte
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReceiveByte
+<P><STRONG><a name="[ca]"></a>DELAY_US</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, delay.o(i.DELAY_US))
+<BR><BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Ack
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DELAY_MS
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_WaitAck
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Stop
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Start
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_SendByte
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReceiveByte
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_NoAck
 </UL>
 
 <P><STRONG><a name="[73]"></a>DMA0_DMA16_DriverIRQHandler</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA0_DMA16_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA0_DMA16_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(.text)
 </UL>
-<P><STRONG><a name="[b]"></a>DMA0_DMA16_IRQHandler</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, ov7725.o(i.DMA0_DMA16_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = DMA0_DMA16_IRQHandler
+<P><STRONG><a name="[b]"></a>DMA0_DMA16_IRQHandler</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, ov7725.o(i.DMA0_DMA16_IRQHandler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA0_DMA16_IRQHandler &rArr; __2printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_DisableIRQ
+<BR>[Calls]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_DisableIRQ
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(RESET)
 </UL>
 <P><STRONG><a name="[7d]"></a>DMA10_DMA26_DriverIRQHandler</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA10_DMA26_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA10_DMA26_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(.text)
 </UL>
 <P><STRONG><a name="[7e]"></a>DMA11_DMA27_DriverIRQHandler</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA11_DMA27_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA11_DMA27_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(.text)
 </UL>
 <P><STRONG><a name="[7f]"></a>DMA12_DMA28_DriverIRQHandler</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA12_DMA28_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA12_DMA28_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(.text)
 </UL>
 <P><STRONG><a name="[80]"></a>DMA13_DMA29_DriverIRQHandler</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA13_DMA29_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA13_DMA29_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(.text)
 </UL>
 <P><STRONG><a name="[81]"></a>DMA14_DMA30_DriverIRQHandler</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA14_DMA30_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA14_DMA30_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(.text)
 </UL>
 <P><STRONG><a name="[82]"></a>DMA15_DMA31_DriverIRQHandler</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA15_DMA31_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA15_DMA31_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(.text)
 </UL>
 <P><STRONG><a name="[74]"></a>DMA1_DMA17_DriverIRQHandler</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA1_DMA17_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA1_DMA17_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(.text)
 </UL>
 <P><STRONG><a name="[75]"></a>DMA2_DMA18_DriverIRQHandler</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA2_DMA18_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA2_DMA18_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(.text)
 </UL>
 <P><STRONG><a name="[76]"></a>DMA3_DMA19_DriverIRQHandler</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA3_DMA19_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA3_DMA19_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(.text)
 </UL>
 <P><STRONG><a name="[77]"></a>DMA4_DMA20_DriverIRQHandler</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA4_DMA20_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA4_DMA20_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(.text)
 </UL>
 <P><STRONG><a name="[78]"></a>DMA5_DMA21_DriverIRQHandler</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA5_DMA21_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA5_DMA21_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(.text)
 </UL>
 <P><STRONG><a name="[79]"></a>DMA6_DMA22_DriverIRQHandler</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA6_DMA22_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA6_DMA22_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(.text)
 </UL>
 <P><STRONG><a name="[7a]"></a>DMA7_DMA23_DriverIRQHandler</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA7_DMA23_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA7_DMA23_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(.text)
 </UL>
 <P><STRONG><a name="[7b]"></a>DMA8_DMA24_DriverIRQHandler</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA8_DMA24_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA8_DMA24_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(.text)
 </UL>
 <P><STRONG><a name="[7c]"></a>DMA9_DMA25_DriverIRQHandler</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, fsl_edma.o(i.DMA9_DMA25_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = DMA9_DMA25_DriverIRQHandler &rArr; EDMA_HandleIRQ
 </UL>
-<BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
+<BR>[Calls]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_HandleIRQ
+<LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(.text)
 </UL>
@@ -1045,18 +1025,18 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ov7725_eagle_port_init
 </UL>
 
-<P><STRONG><a name="[b3]"></a>DbgConsole_Init</STRONG> (Thumb, 102 bytes, Stack size 56 bytes, fsl_debug_console.o(i.DbgConsole_Init))
+<P><STRONG><a name="[b0]"></a>DbgConsole_Init</STRONG> (Thumb, 102 bytes, Stack size 56 bytes, fsl_debug_console.o(i.DbgConsole_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = DbgConsole_Init &rArr; SerialManager_Init &rArr; Serial_UartInit &rArr; HAL_UartInit &rArr; UART_Init &rArr; UART_GetInstance
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SerialManager_OpenWriteHandle
-<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SerialManager_OpenReadHandle
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SerialManager_Init
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
+<BR>[Calls]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SerialManager_OpenWriteHandle
+<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SerialManager_OpenReadHandle
+<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SerialManager_Init
+<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitDebugConsole
+<BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitDebugConsole
 </UL>
 
-<P><STRONG><a name="[ce]"></a>EDMA_GetChannelStatusFlags</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, fsl_edma.o(i.EDMA_GetChannelStatusFlags))
+<P><STRONG><a name="[cb]"></a>EDMA_GetChannelStatusFlags</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, fsl_edma.o(i.EDMA_GetChannelStatusFlags))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = EDMA_GetChannelStatusFlags
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA9_DMA25_DriverIRQHandler
@@ -1077,7 +1057,7 @@ Global Symbols
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA0_DMA16_DriverIRQHandler
 </UL>
 
-<P><STRONG><a name="[cf]"></a>EDMA_HandleIRQ</STRONG> (Thumb, 162 bytes, Stack size 16 bytes, fsl_edma.o(i.EDMA_HandleIRQ))
+<P><STRONG><a name="[cc]"></a>EDMA_HandleIRQ</STRONG> (Thumb, 162 bytes, Stack size 16 bytes, fsl_edma.o(i.EDMA_HandleIRQ))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = EDMA_HandleIRQ
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA9_DMA25_DriverIRQHandler
@@ -1098,50 +1078,63 @@ Global Symbols
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA0_DMA16_DriverIRQHandler
 </UL>
 
-<P><STRONG><a name="[d5]"></a>Error_Handle</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, main.o(i.Error_Handle))
-<BR><BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handle
+<P><STRONG><a name="[d3]"></a>Error_Handle</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, main.o(i.Error_Handle))
+<BR><BR>[Calls]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handle
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handle
+<BR>[Called By]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handle
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_SetStatus
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_GPIOInit
 </UL>
 
-<P><STRONG><a name="[d9]"></a>GPIO_PinInit</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, fsl_gpio.o(i.GPIO_PinInit))
+<P><STRONG><a name="[d8]"></a>GPIO_PinInit</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, fsl_gpio.o(i.GPIO_PinInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = GPIO_PinInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_MODE_CHANGE
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Init
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_GPIOInit
+<BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_GPIOInit
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_MODE_CHANGE
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Init
 </UL>
 
-<P><STRONG><a name="[d6]"></a>HAL_UartInit</STRONG> (Thumb, 146 bytes, Stack size 32 bytes, uart_adapter.o(i.HAL_UartInit))
+<P><STRONG><a name="[d4]"></a>HAL_UartInit</STRONG> (Thumb, 146 bytes, Stack size 32 bytes, uart_adapter.o(i.HAL_UartInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = HAL_UartInit &rArr; UART_Init &rArr; UART_GetInstance
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
-<LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_GetDefaultConfig
-<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UartGetStatus
+<BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UartGetStatus
+<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
+<LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_GetDefaultConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_UartInit
+<BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_UartInit
 </UL>
 
+<P><STRONG><a name="[3]"></a>HardFault_Handler</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, main.o(i.HardFault_Handler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = HardFault_Handler &rArr; LED_On
+</UL>
+<BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_On
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(RESET)
+</UL>
 <P><STRONG><a name="[a0]"></a>LED_GPIOInit</STRONG> (Thumb, 142 bytes, Stack size 24 bytes, led.o(i.LED_GPIOInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = LED_GPIOInit &rArr; GPIO_PinInit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinInit
-<LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handle
-<LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_EnableClock
+<BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinInit
+<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handle
+<LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_EnableClock
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> led.o(.data)
 </UL>
-<P><STRONG><a name="[f9]"></a>LED_Init</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, led.o(i.LED_Init))
+<P><STRONG><a name="[f7]"></a>LED_Init</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, led.o(i.LED_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = LED_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
+<P><STRONG><a name="[d6]"></a>LED_On</STRONG> (Thumb, 18 bytes, Stack size 24 bytes, led.o(i.LED_On))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = LED_On
+</UL>
+<BR>[Called By]<UL><LI><a href="#[3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HardFault_Handler
+</UL>
+
 <P><STRONG><a name="[a1]"></a>LED_SetStatus</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, led.o(i.LED_SetStatus))
-<BR><BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handle
-<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinWrite
+<BR><BR>[Calls]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handle
+<LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinWrite
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> led.o(.data)
 </UL>
@@ -1150,182 +1143,182 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(.text)
 </UL>
-<P><STRONG><a name="[46]"></a>PORTA_IRQHandler</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, ov7725.o(i.PORTA_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = PORTA_IRQHandler
+<P><STRONG><a name="[46]"></a>PORTA_IRQHandler</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, ov7725.o(i.PORTA_IRQHandler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = PORTA_IRQHandler
 </UL>
-<BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_EnableIRQ
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_DisableIRQ
+<BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_EnableIRQ
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_DisableIRQ
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(RESET)
 </UL>
-<P><STRONG><a name="[dc]"></a>SCCB_Ack</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, sccb.o(i.SCCB_Ack))
+<P><STRONG><a name="[db]"></a>SCCB_Ack</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, sccb.o(i.SCCB_Ack))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SCCB_Ack
 </UL>
-<BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinWrite
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DELAY_US
+<BR>[Calls]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinWrite
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DELAY_US
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReadByte_one
+<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReadByte_one
 </UL>
 
-<P><STRONG><a name="[de]"></a>SCCB_Init</STRONG> (Thumb, 106 bytes, Stack size 16 bytes, sccb.o(i.SCCB_Init))
+<P><STRONG><a name="[dd]"></a>SCCB_Init</STRONG> (Thumb, 106 bytes, Stack size 16 bytes, sccb.o(i.SCCB_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = SCCB_Init &rArr; GPIO_PinInit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinInit
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_EnableClock
+<BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinInit
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_EnableClock
 </UL>
 <BR>[Called By]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ov7725_eagle_reg_init
 </UL>
 
-<P><STRONG><a name="[e0]"></a>SCCB_MODE_CHANGE</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, sccb.o(i.SCCB_MODE_CHANGE))
+<P><STRONG><a name="[df]"></a>SCCB_MODE_CHANGE</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, sccb.o(i.SCCB_MODE_CHANGE))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SCCB_MODE_CHANGE &rArr; GPIO_PinInit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinInit
+<BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_WaitAck
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Start
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_SendByte
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReceiveByte
+<BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_WaitAck
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Start
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_SendByte
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReceiveByte
 </UL>
 
-<P><STRONG><a name="[e1]"></a>SCCB_NoAck</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, sccb.o(i.SCCB_NoAck))
+<P><STRONG><a name="[e0]"></a>SCCB_NoAck</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, sccb.o(i.SCCB_NoAck))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SCCB_NoAck
 </UL>
-<BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinWrite
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DELAY_US
+<BR>[Calls]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinWrite
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DELAY_US
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReadByte_one
+<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReadByte_one
 </UL>
 
-<P><STRONG><a name="[e2]"></a>SCCB_ReadByte</STRONG> (Thumb, 46 bytes, Stack size 24 bytes, sccb.o(i.SCCB_ReadByte))
+<P><STRONG><a name="[e1]"></a>SCCB_ReadByte</STRONG> (Thumb, 46 bytes, Stack size 24 bytes, sccb.o(i.SCCB_ReadByte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = SCCB_ReadByte &rArr; SCCB_ReadByte_one &rArr; SCCB_Start &rArr; __2printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReadByte_one
+<BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReadByte_one
 </UL>
 <BR>[Called By]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ov7725_eagle_reg_init
 </UL>
 
-<P><STRONG><a name="[e3]"></a>SCCB_ReadByte_one</STRONG> (Thumb, 108 bytes, Stack size 16 bytes, sccb.o(i.SCCB_ReadByte_one))
+<P><STRONG><a name="[e2]"></a>SCCB_ReadByte_one</STRONG> (Thumb, 108 bytes, Stack size 16 bytes, sccb.o(i.SCCB_ReadByte_one))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = SCCB_ReadByte_one &rArr; SCCB_Start &rArr; __2printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_NoAck
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Ack
-<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_WaitAck
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Stop
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Start
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_SendByte
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReceiveByte
+<BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Ack
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_WaitAck
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Stop
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Start
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_SendByte
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReceiveByte
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_NoAck
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReadByte
+<BR>[Called By]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReadByte
 </UL>
 
-<P><STRONG><a name="[e8]"></a>SCCB_ReceiveByte</STRONG> (Thumb, 92 bytes, Stack size 16 bytes, sccb.o(i.SCCB_ReceiveByte))
+<P><STRONG><a name="[e7]"></a>SCCB_ReceiveByte</STRONG> (Thumb, 92 bytes, Stack size 16 bytes, sccb.o(i.SCCB_ReceiveByte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = SCCB_ReceiveByte &rArr; SCCB_MODE_CHANGE &rArr; GPIO_PinInit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_MODE_CHANGE
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinWrite
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DELAY_US
+<BR>[Calls]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinWrite
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DELAY_US
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_MODE_CHANGE
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReadByte_one
+<BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReadByte_one
 </UL>
 
-<P><STRONG><a name="[e5]"></a>SCCB_SendByte</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, sccb.o(i.SCCB_SendByte))
+<P><STRONG><a name="[e4]"></a>SCCB_SendByte</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, sccb.o(i.SCCB_SendByte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = SCCB_SendByte &rArr; SCCB_MODE_CHANGE &rArr; GPIO_PinInit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_MODE_CHANGE
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinWrite
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DELAY_US
+<BR>[Calls]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinWrite
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DELAY_US
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_MODE_CHANGE
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReadByte_one
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_WriteByte_one
+<BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_WriteByte_one
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReadByte_one
 </UL>
 
-<P><STRONG><a name="[e4]"></a>SCCB_Start</STRONG> (Thumb, 120 bytes, Stack size 8 bytes, sccb.o(i.SCCB_Start))
+<P><STRONG><a name="[e3]"></a>SCCB_Start</STRONG> (Thumb, 120 bytes, Stack size 8 bytes, sccb.o(i.SCCB_Start))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = SCCB_Start &rArr; __2printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_MODE_CHANGE
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinWrite
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DELAY_US
+<BR>[Calls]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinWrite
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DELAY_US
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_MODE_CHANGE
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReadByte_one
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_WriteByte_one
+<BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_WriteByte_one
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReadByte_one
 </UL>
 
-<P><STRONG><a name="[e7]"></a>SCCB_Stop</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, sccb.o(i.SCCB_Stop))
+<P><STRONG><a name="[e6]"></a>SCCB_Stop</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, sccb.o(i.SCCB_Stop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SCCB_Stop
 </UL>
-<BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinWrite
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DELAY_US
+<BR>[Calls]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinWrite
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DELAY_US
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReadByte_one
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_WriteByte_one
+<BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_WriteByte_one
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReadByte_one
 </UL>
 
-<P><STRONG><a name="[e6]"></a>SCCB_WaitAck</STRONG> (Thumb, 102 bytes, Stack size 8 bytes, sccb.o(i.SCCB_WaitAck))
+<P><STRONG><a name="[e5]"></a>SCCB_WaitAck</STRONG> (Thumb, 102 bytes, Stack size 8 bytes, sccb.o(i.SCCB_WaitAck))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = SCCB_WaitAck &rArr; SCCB_MODE_CHANGE &rArr; GPIO_PinInit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_MODE_CHANGE
-<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinWrite
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DELAY_US
+<BR>[Calls]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_PinWrite
+<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DELAY_US
+<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_MODE_CHANGE
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReadByte_one
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_WriteByte_one
+<BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_WriteByte_one
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReadByte_one
 </UL>
 
-<P><STRONG><a name="[ea]"></a>SCCB_WriteByte</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, sccb.o(i.SCCB_WriteByte))
+<P><STRONG><a name="[e8]"></a>SCCB_WriteByte</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, sccb.o(i.SCCB_WriteByte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = SCCB_WriteByte &rArr; SCCB_WriteByte_one &rArr; SCCB_Start &rArr; __2printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_WriteByte_one
+<BR>[Calls]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_WriteByte_one
 </UL>
 <BR>[Called By]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ov7725_eagle_reg_init
 </UL>
 
-<P><STRONG><a name="[eb]"></a>SCCB_WriteByte_one</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, sccb.o(i.SCCB_WriteByte_one))
+<P><STRONG><a name="[e9]"></a>SCCB_WriteByte_one</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, sccb.o(i.SCCB_WriteByte_one))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = SCCB_WriteByte_one &rArr; SCCB_Start &rArr; __2printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
-<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_WaitAck
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Stop
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Start
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_SendByte
+<BR>[Calls]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_WaitAck
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Stop
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Start
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_SendByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_WriteByte
+<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_WriteByte
 </UL>
 
-<P><STRONG><a name="[ac]"></a>SMC_SetPowerModeHsrun</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, fsl_smc.o(i.SMC_SetPowerModeHsrun))
-<BR><BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockRUN
+<P><STRONG><a name="[a9]"></a>SMC_SetPowerModeHsrun</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, fsl_smc.o(i.SMC_SetPowerModeHsrun))
+<BR><BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_BootClockRUN
 </UL>
 
 <P><STRONG><a name="[f8]"></a>SYSTICK_INIT</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, delay.o(i.SYSTICK_INIT))
 <BR><BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[d2]"></a>SerialManager_Init</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, serial_manager.o(i.SerialManager_Init))
+<P><STRONG><a name="[d0]"></a>SerialManager_Init</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, serial_manager.o(i.SerialManager_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = SerialManager_Init &rArr; Serial_UartInit &rArr; HAL_UartInit &rArr; UART_Init &rArr; UART_GetInstance
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_UartInit
+<BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Serial_UartInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Init
+<BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Init
 </UL>
 
-<P><STRONG><a name="[d4]"></a>SerialManager_OpenReadHandle</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, serial_manager.o(i.SerialManager_OpenReadHandle))
+<P><STRONG><a name="[d2]"></a>SerialManager_OpenReadHandle</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, serial_manager.o(i.SerialManager_OpenReadHandle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SerialManager_OpenReadHandle
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Init
+<BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Init
 </UL>
 
-<P><STRONG><a name="[d3]"></a>SerialManager_OpenWriteHandle</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, serial_manager.o(i.SerialManager_OpenWriteHandle))
+<P><STRONG><a name="[d1]"></a>SerialManager_OpenWriteHandle</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, serial_manager.o(i.SerialManager_OpenWriteHandle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SerialManager_OpenWriteHandle
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Init
+<BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DbgConsole_Init
 </UL>
 
-<P><STRONG><a name="[ec]"></a>Serial_UartInit</STRONG> (Thumb, 66 bytes, Stack size 24 bytes, serial_port_uart.o(i.Serial_UartInit))
+<P><STRONG><a name="[ea]"></a>Serial_UartInit</STRONG> (Thumb, 66 bytes, Stack size 24 bytes, serial_port_uart.o(i.Serial_UartInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = Serial_UartInit &rArr; HAL_UartInit &rArr; UART_Init &rArr; UART_GetInstance
 </UL>
-<BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UartInit
+<BR>[Calls]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UartInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SerialManager_Init
+<BR>[Called By]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SerialManager_Init
 </UL>
 
 <P><STRONG><a name="[a]"></a>SysTick_Handler</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, delay.o(i.SysTick_Handler))
@@ -1334,15 +1327,15 @@ Global Symbols
 <P><STRONG><a name="[71]"></a>SystemInit</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, system_mk66f18.o(i.SystemInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SystemInit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInitHook
+<BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInitHook
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(.text)
 </UL>
-<P><STRONG><a name="[ed]"></a>SystemInitHook</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, system_mk66f18.o(i.SystemInitHook))
+<P><STRONG><a name="[eb]"></a>SystemInitHook</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, system_mk66f18.o(i.SystemInitHook))
 <BR><BR>[Called By]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
 </UL>
 
-<P><STRONG><a name="[ee]"></a>UART0_DriverIRQHandler</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, fsl_uart.o(i.UART0_DriverIRQHandler))
+<P><STRONG><a name="[ec]"></a>UART0_DriverIRQHandler</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, fsl_uart.o(i.UART0_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = UART0_DriverIRQHandler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART0_RX_TX_DriverIRQHandler
@@ -1351,11 +1344,11 @@ Global Symbols
 <P><STRONG><a name="[8a]"></a>UART0_RX_TX_DriverIRQHandler</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, fsl_uart.o(i.UART0_RX_TX_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = UART0_RX_TX_DriverIRQHandler &rArr; UART0_DriverIRQHandler
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART0_DriverIRQHandler
+<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART0_DriverIRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(.text)
 </UL>
-<P><STRONG><a name="[ef]"></a>UART1_DriverIRQHandler</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, fsl_uart.o(i.UART1_DriverIRQHandler))
+<P><STRONG><a name="[ed]"></a>UART1_DriverIRQHandler</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, fsl_uart.o(i.UART1_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = UART1_DriverIRQHandler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_RX_TX_DriverIRQHandler
@@ -1364,11 +1357,11 @@ Global Symbols
 <P><STRONG><a name="[8c]"></a>UART1_RX_TX_DriverIRQHandler</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, fsl_uart.o(i.UART1_RX_TX_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = UART1_RX_TX_DriverIRQHandler &rArr; UART1_DriverIRQHandler
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_DriverIRQHandler
+<BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_DriverIRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(.text)
 </UL>
-<P><STRONG><a name="[f0]"></a>UART2_DriverIRQHandler</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, fsl_uart.o(i.UART2_DriverIRQHandler))
+<P><STRONG><a name="[ee]"></a>UART2_DriverIRQHandler</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, fsl_uart.o(i.UART2_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = UART2_DriverIRQHandler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART2_RX_TX_DriverIRQHandler
@@ -1377,11 +1370,11 @@ Global Symbols
 <P><STRONG><a name="[8e]"></a>UART2_RX_TX_DriverIRQHandler</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, fsl_uart.o(i.UART2_RX_TX_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = UART2_RX_TX_DriverIRQHandler &rArr; UART2_DriverIRQHandler
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART2_DriverIRQHandler
+<BR>[Calls]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART2_DriverIRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(.text)
 </UL>
-<P><STRONG><a name="[f1]"></a>UART3_DriverIRQHandler</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, fsl_uart.o(i.UART3_DriverIRQHandler))
+<P><STRONG><a name="[ef]"></a>UART3_DriverIRQHandler</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, fsl_uart.o(i.UART3_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = UART3_DriverIRQHandler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART3_RX_TX_DriverIRQHandler
@@ -1390,11 +1383,11 @@ Global Symbols
 <P><STRONG><a name="[90]"></a>UART3_RX_TX_DriverIRQHandler</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, fsl_uart.o(i.UART3_RX_TX_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = UART3_RX_TX_DriverIRQHandler &rArr; UART3_DriverIRQHandler
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART3_DriverIRQHandler
+<BR>[Calls]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART3_DriverIRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(.text)
 </UL>
-<P><STRONG><a name="[f2]"></a>UART4_DriverIRQHandler</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, fsl_uart.o(i.UART4_DriverIRQHandler))
+<P><STRONG><a name="[f0]"></a>UART4_DriverIRQHandler</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, fsl_uart.o(i.UART4_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = UART4_DriverIRQHandler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART4_RX_TX_DriverIRQHandler
@@ -1403,97 +1396,99 @@ Global Symbols
 <P><STRONG><a name="[93]"></a>UART4_RX_TX_DriverIRQHandler</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, fsl_uart.o(i.UART4_RX_TX_DriverIRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = UART4_RX_TX_DriverIRQHandler &rArr; UART4_DriverIRQHandler
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART4_DriverIRQHandler
+<BR>[Calls]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART4_DriverIRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mk66f18.o(.text)
 </UL>
-<P><STRONG><a name="[b8]"></a>UART_GetDefaultConfig</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, fsl_uart.o(i.UART_GetDefaultConfig))
+<P><STRONG><a name="[b5]"></a>UART_GetDefaultConfig</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, fsl_uart.o(i.UART_GetDefaultConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = UART_GetDefaultConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BlueTooes_UART_Init
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UartInit
+<BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BlueTooes_UART_Init
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UartInit
 </UL>
 
-<P><STRONG><a name="[f3]"></a>UART_GetInstance</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, fsl_uart.o(i.UART_GetInstance))
+<P><STRONG><a name="[f1]"></a>UART_GetInstance</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, fsl_uart.o(i.UART_GetInstance))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = UART_GetInstance
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
+<BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
 </UL>
 
-<P><STRONG><a name="[f7]"></a>UART_GetStatusFlags</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, fsl_uart.o(i.UART_GetStatusFlags))
+<P><STRONG><a name="[f6]"></a>UART_GetStatusFlags</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, fsl_uart.o(i.UART_GetStatusFlags))
 <BR><BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fputc
 </UL>
 
-<P><STRONG><a name="[ba]"></a>UART_Init</STRONG> (Thumb, 358 bytes, Stack size 32 bytes, fsl_uart.o(i.UART_Init))
+<P><STRONG><a name="[b7]"></a>UART_Init</STRONG> (Thumb, 358 bytes, Stack size 32 bytes, fsl_uart.o(i.UART_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = UART_Init &rArr; UART_GetInstance
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_GetInstance
+<BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_GetInstance
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BlueTooes_UART_Init
-<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UartInit
+<BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BlueTooes_UART_Init
+<LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UartInit
 </UL>
 
-<P><STRONG><a name="[b7]"></a>UART_Pin_Init</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, usart.o(i.UART_Pin_Init))
+<P><STRONG><a name="[b4]"></a>UART_Pin_Init</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, usart.o(i.UART_Pin_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = UART_Pin_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_EnableClock
+<BR>[Calls]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_EnableClock
 </UL>
-<BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BlueTooes_UART_Init
-</UL>
-
-<P><STRONG><a name="[f5]"></a>__0printf$5</STRONG> (Thumb, 22 bytes, Stack size 24 bytes, printf5.o(i.__0printf$5), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BlueTooes_UART_Init
 </UL>
 
-<P><STRONG><a name="[10b]"></a>__1printf$5</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf5.o(i.__0printf$5), UNUSED)
+<P><STRONG><a name="[f3]"></a>__0printf$1</STRONG> (Thumb, 22 bytes, Stack size 24 bytes, printf1.o(i.__0printf$1), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+</UL>
 
-<P><STRONG><a name="[e9]"></a>__2printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf5.o(i.__0printf$5))
+<P><STRONG><a name="[10a]"></a>__1printf$1</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf1.o(i.__0printf$1), UNUSED)
+
+<P><STRONG><a name="[cd]"></a>__2printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf1.o(i.__0printf$1))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ov7725_eagle_reg_init
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_WriteByte_one
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Start
+<LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA0_DMA16_IRQHandler
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_WriteByte_one
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Start
 </UL>
 
-<P><STRONG><a name="[10c]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[10b]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[10d]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[10c]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
-<P><STRONG><a name="[10e]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[10d]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
 <P><STRONG><a name="[9f]"></a>fputc</STRONG> (Thumb, 22 bytes, Stack size 16 bytes, usart.o(i.fputc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = fputc
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_GetStatusFlags
+<BR>[Calls]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_GetStatusFlags
 </UL>
-<BR>[Address Reference Count : 1]<UL><LI> printf5.o(i.__0printf$5)
+<BR>[Address Reference Count : 1]<UL><LI> printf1.o(i.__0printf$1)
 </UL>
-<P><STRONG><a name="[70]"></a>main</STRONG> (Thumb, 68 bytes, Stack size 0 bytes, main.o(i.main))
+<P><STRONG><a name="[70]"></a>main</STRONG> (Thumb, 120 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = main &rArr; BOARD_InitDebugConsole &rArr; DbgConsole_Init &rArr; SerialManager_Init &rArr; Serial_UartInit &rArr; HAL_UartInit &rArr; UART_Init &rArr; UART_GetInstance
 </UL>
-<BR>[Calls]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ov7725_eagle_init
-<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ov7725_eagle_get_img
+<BR>[Calls]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ov7725_eagle_init
+<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ov7725_eagle_get_img
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSTICK_INIT
-<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
-<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
-<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BlueTooes_UART_Init
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitPins
-<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitDebugConsole
-<LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitBootClocks
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Init
+<LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFreq
+<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BlueTooes_UART_Init
+<LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitPins
+<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitDebugConsole
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitBootClocks
+<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
-<P><STRONG><a name="[fb]"></a>ov7725_eagle_get_img</STRONG> (Thumb, 44 bytes, Stack size 24 bytes, ov7725.o(i.ov7725_eagle_get_img))
+<P><STRONG><a name="[fa]"></a>ov7725_eagle_get_img</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, ov7725.o(i.ov7725_eagle_get_img))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = ov7725_eagle_get_img
 </UL>
-<BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_EnableIRQ
+<BR>[Calls]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_SetPriority
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_EnableIRQ
 </UL>
 <BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[fa]"></a>ov7725_eagle_init</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, ov7725.o(i.ov7725_eagle_init))
+<P><STRONG><a name="[f9]"></a>ov7725_eagle_init</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, ov7725.o(i.ov7725_eagle_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = ov7725_eagle_init &rArr; ov7725_eagle_reg_init &rArr; SCCB_ReadByte &rArr; SCCB_ReadByte_one &rArr; SCCB_Start &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ov7725_eagle_reg_init
@@ -1502,108 +1497,116 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[fd]"></a>ov7725_eagle_port_init</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, ov7725.o(i.ov7725_eagle_port_init))
+<P><STRONG><a name="[fd]"></a>ov7725_eagle_port_init</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, ov7725.o(i.ov7725_eagle_port_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = ov7725_eagle_port_init &rArr; Crmera_Pin_init &rArr; PORT_SetPinConfig
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_INIT
-<LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Crmera_Pin_init
-<LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_DisableIRQ
+<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Crmera_Pin_init
+<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_SetPriority
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_EnableIRQ
+<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_DisableIRQ
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ov7725_eagle_init
+<BR>[Called By]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ov7725_eagle_init
 </UL>
 
-<P><STRONG><a name="[fc]"></a>ov7725_eagle_reg_init</STRONG> (Thumb, 152 bytes, Stack size 24 bytes, ov7725.o(i.ov7725_eagle_reg_init))
+<P><STRONG><a name="[fc]"></a>ov7725_eagle_reg_init</STRONG> (Thumb, 104 bytes, Stack size 24 bytes, ov7725.o(i.ov7725_eagle_reg_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = ov7725_eagle_reg_init &rArr; SCCB_ReadByte &rArr; SCCB_ReadByte_one &rArr; SCCB_Start &rArr; __2printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReadByte
-<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Init
-<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
-<LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DELAY_MS
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_WriteByte
+<BR>[Calls]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DELAY_MS
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_WriteByte
+<LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReadByte
+<LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ov7725_eagle_init
+<BR>[Called By]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ov7725_eagle_init
 </UL>
 <P>
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[b5]"></a>CLOCK_EnableClock</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, pin_mux.o(i.CLOCK_EnableClock))
-<BR><BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitPins
+<P><STRONG><a name="[b2]"></a>CLOCK_EnableClock</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, pin_mux.o(i.CLOCK_EnableClock))
+<BR><BR>[Called By]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BOARD_InitPins
 </UL>
 
-<P><STRONG><a name="[c1]"></a>CLOCK_GetFllRefClkFreq</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetFllRefClkFreq))
+<P><STRONG><a name="[be]"></a>CLOCK_GetFllRefClkFreq</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetFllRefClkFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = CLOCK_GetFllRefClkFreq &rArr; CLOCK_GetMcgExtClkFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetMcgExtClkFreq
+<BR>[Calls]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetMcgExtClkFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFllFreq
-<LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFixedFreqClkFreq
-</UL>
-
-<P><STRONG><a name="[c8]"></a>CLOCK_GetInternalRefClkSelectFreq</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_GetInternalRefClkSelectFreq))
-<BR><BR>[Called By]<UL><LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetOutClkFreq
-<LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetInternalRefClkFreq
+<BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFllFreq
+<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFixedFreqClkFreq
 </UL>
 
-<P><STRONG><a name="[c3]"></a>CLOCK_GetMcgExtClkFreq</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetMcgExtClkFreq))
+<P><STRONG><a name="[c5]"></a>CLOCK_GetInternalRefClkSelectFreq</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, fsl_clock.o(i.CLOCK_GetInternalRefClkSelectFreq))
+<BR><BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetOutClkFreq
+<LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetInternalRefClkFreq
+</UL>
+
+<P><STRONG><a name="[c0]"></a>CLOCK_GetMcgExtClkFreq</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, fsl_clock.o(i.CLOCK_GetMcgExtClkFreq))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = CLOCK_GetMcgExtClkFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPll0Freq
-<LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetOutClkFreq
-<LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFllRefClkFreq
+<BR>[Called By]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetPll0Freq
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetOutClkFreq
+<LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLOCK_GetFllRefClkFreq
 </UL>
 
-<P><STRONG><a name="[d7]"></a>HAL_UartGetStatus</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, uart_adapter.o(i.HAL_UartGetStatus))
-<BR><BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UartInit
+<P><STRONG><a name="[d5]"></a>HAL_UartGetStatus</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, uart_adapter.o(i.HAL_UartGetStatus))
+<BR><BR>[Called By]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UartInit
 </UL>
 
-<P><STRONG><a name="[d8]"></a>CLOCK_EnableClock</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, led.o(i.CLOCK_EnableClock))
+<P><STRONG><a name="[d7]"></a>CLOCK_EnableClock</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, led.o(i.CLOCK_EnableClock))
 <BR><BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_GPIOInit
 </UL>
 
-<P><STRONG><a name="[da]"></a>GPIO_PinWrite</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, led.o(i.GPIO_PinWrite))
+<P><STRONG><a name="[d9]"></a>GPIO_PinWrite</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, led.o(i.GPIO_PinWrite))
 <BR><BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_SetStatus
 </UL>
 
-<P><STRONG><a name="[df]"></a>CLOCK_EnableClock</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, sccb.o(i.CLOCK_EnableClock))
-<BR><BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Init
+<P><STRONG><a name="[de]"></a>CLOCK_EnableClock</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, sccb.o(i.CLOCK_EnableClock))
+<BR><BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Init
 </UL>
 
-<P><STRONG><a name="[dd]"></a>GPIO_PinWrite</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, sccb.o(i.GPIO_PinWrite))
-<BR><BR>[Called By]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_NoAck
-<LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Ack
-<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_WaitAck
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Stop
-<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Start
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_SendByte
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReceiveByte
+<P><STRONG><a name="[dc]"></a>GPIO_PinWrite</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, sccb.o(i.GPIO_PinWrite))
+<BR><BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Ack
+<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_WaitAck
+<LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Stop
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_Start
+<LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_SendByte
+<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_ReceiveByte
+<LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SCCB_NoAck
 </UL>
 
-<P><STRONG><a name="[cb]"></a>PORT_SetPinConfig</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, ov7725.o(i.PORT_SetPinConfig))
+<P><STRONG><a name="[c8]"></a>PORT_SetPinConfig</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, ov7725.o(i.PORT_SetPinConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = PORT_SetPinConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Crmera_Pin_init
+<BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Crmera_Pin_init
 </UL>
 
-<P><STRONG><a name="[d0]"></a>__NVIC_DisableIRQ</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, ov7725.o(i.__NVIC_DisableIRQ))
+<P><STRONG><a name="[ce]"></a>__NVIC_DisableIRQ</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, ov7725.o(i.__NVIC_DisableIRQ))
 <BR><BR>[Called By]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ov7725_eagle_port_init
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORTA_IRQHandler
 <LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA0_DMA16_IRQHandler
 </UL>
 
-<P><STRONG><a name="[db]"></a>__NVIC_EnableIRQ</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, ov7725.o(i.__NVIC_EnableIRQ))
-<BR><BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ov7725_eagle_get_img
+<P><STRONG><a name="[da]"></a>__NVIC_EnableIRQ</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, ov7725.o(i.__NVIC_EnableIRQ))
+<BR><BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ov7725_eagle_get_img
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ov7725_eagle_port_init
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORTA_IRQHandler
 </UL>
 
-<P><STRONG><a name="[f4]"></a>CLOCK_EnableClock</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, usart.o(i.CLOCK_EnableClock))
-<BR><BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Pin_Init
+<P><STRONG><a name="[fb]"></a>__NVIC_SetPriority</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, ov7725.o(i.__NVIC_SetPriority))
+<BR><BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ov7725_eagle_get_img
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ov7725_eagle_port_init
 </UL>
 
-<P><STRONG><a name="[f6]"></a>_printf_core</STRONG> (Thumb, 658 bytes, Stack size 104 bytes, printf5.o(i._printf_core), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
+<P><STRONG><a name="[f2]"></a>CLOCK_EnableClock</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, usart.o(i.CLOCK_EnableClock))
+<BR><BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Pin_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0printf$5
+
+<P><STRONG><a name="[f4]"></a>_printf_core</STRONG> (Thumb, 336 bytes, Stack size 88 bytes, printf1.o(i._printf_core), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
+</UL>
+<BR>[Called By]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0printf$1
 </UL>
 <P>
 <H3>

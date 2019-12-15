@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-12-10 20:12:41
- * @LastEditTime: 2019-12-10 21:07:36
+ * @LastEditTime: 2019-12-15 09:51:28
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \FEIKA_ZHINVXING\Freescals\drivers\Hardware\DMA.c
@@ -13,7 +13,7 @@ void DMA_INIT(uint32_t srcAddr,uint32_t destAddr,uint16_t size)
 	SIM->SCGC6 = SIM_SCGC6_DMAMUX_MASK;//使能DMAMUX时钟
 	SIM->SCGC7 = SIM_SCGC7_DMA_MASK;//使能DMA时钟
 	
-	DMAMUX->CHCFG[0] = DMAMUX_CHCFG_ENBL_MASK | DMAMUX_CHCFG_SOURCE(63);//使能DMA通道和通道源
+	DMAMUX->CHCFG[0] = DMAMUX_CHCFG_ENBL_MASK | DMAMUX_CHCFG_SOURCE(49);//使能DMA通道和通道源,触发DMA传输的信号源为摄像头时钟信号PLCK的上升沿
 	
 	//源数据配置：
 	//源地址
@@ -24,6 +24,7 @@ void DMA_INIT(uint32_t srcAddr,uint32_t destAddr,uint16_t size)
 	DMA0->TCD[0].ATTR = DMA_ATTR_SSIZE(0);
 	DMA0->TCD[0].SOFF = 1;
 	DMA0->TCD[0].SLAST = 0;
+
 	//目的数据配置：
 	//目的地址
 	//每次搬运的字节数为0位（一个字节）
@@ -33,6 +34,7 @@ void DMA_INIT(uint32_t srcAddr,uint32_t destAddr,uint16_t size)
 	DMA0->TCD[0].ATTR = DMA_ATTR_DSIZE(0);
 	DMA0->TCD[0].DOFF = 1;
 	DMA0->TCD[0].DLAST_SGA = 0;
+	
 	//设置BITER和CITER：
 	//本次循环有size个小循环
 	//本次循环有size个大循环
@@ -48,7 +50,6 @@ void DMA_INIT(uint32_t srcAddr,uint32_t destAddr,uint16_t size)
 	
 	//EnableIRQ(DMA0_DMA16_IRQn);//使能DMA中断	
 	//DMA0->SERQ = DMA_SERQ_SAER(0);//开始传输
-	
 }
 
 /*void DMA0_DMA16_IRQHandler(void)

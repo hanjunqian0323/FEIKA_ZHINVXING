@@ -116,9 +116,10 @@ void ov7725_eagle_port_init(void)
 #endif
 /*<your code>*/
 
-    DMA_INIT(GPIOB->PDIR,(uint32_t)ov7725_eagle_img_buff,60*80);
+    DMA_INIT((uint32_t)((GPIOB->PDIR)&0xff),(uint32_t)ov7725_eagle_img_buff,60*80);
     set_irq_priority(DMA0_DMA16_IRQn,1);//设置中断优先级为1
-    disable_irq(DMA0_DMA16_IRQn);//关闭中断
+    disable_irq(PORTA_IRQn);  
+    enable_irq(DMA0_DMA16_IRQn);//开启闭中断
     DMA0->CINT = DMA_CINT_CINT(0);//清除中断标志位
     Crmera_Pin_init();
 }
@@ -141,7 +142,7 @@ uint8_t ov7725_eagle_reg_init(void)
 
     if( 0 == SCCB_WriteByte ( OV7725_COM7, 0x80 ) ) /*复位sensor */
     {
-		DEBUG_PRINTF("\n警告:SCCB写数据错误\n");
+		//DEBUG_PRINTF("\n警告:SCCB写数据错误\n");
         return 0 ;
     }
 
@@ -149,18 +150,18 @@ uint8_t ov7725_eagle_reg_init(void)
 
     if( 0 == SCCB_ReadByte( &Sensor_IDCode, 1, OV7725_VER ) )    /* 读取sensor ID号*/
     {
-        DEBUG_PRINTF("\n警告:读取ID失败\n");
+        //DEBUG_PRINTF("\n警告:读取ID失败\n");
         return 0;
     }
-    DEBUG_PRINTF("\nGet ID success，SENSOR ID is 0x%x", Sensor_IDCode);
-    DEBUG_PRINTF("\nConfig Register Number is %d ", ov7725_eagle_cfgnum);
+   // DEBUG_PRINTF("\nGet ID success，SENSOR ID is 0x%x", Sensor_IDCode);
+    //DEBUG_PRINTF("\nConfig Register Number is %d ", ov7725_eagle_cfgnum);
     if(Sensor_IDCode == OV7725_ID)
     {
         for( i = 0 ; i < ov7725_eagle_cfgnum ; i++ )
         {
             if( 0 == SCCB_WriteByte(ov7725_eagle_reg[i].addr, ov7725_eagle_reg[i].val) )
             {
-                DEBUG_PRINTF("\n警告:写寄存器0x%x失败", ov7725_eagle_reg[i].addr);
+                //DEBUG_PRINTF("\n警告:写寄存器0x%x失败", ov7725_eagle_reg[i].addr);
                 return 0;
             }
         }
@@ -178,56 +179,62 @@ volatile IMG_STATUS_e      ov7725_eagle_img_flag = IMG_FINISH;   //图像状态
 void ov7725_eagle_get_img(void)
 {
     ov7725_eagle_img_flag = IMG_START;                   //开始采集图像
-    //PORTA_ISFR = ~0;                        //写1清中断标志位(必须的，不然回导致一开中断就马上触发中断)
-    PORTA->ISFR = ~0;
-    enable_irq(PORTA_IRQn);                         //允许PTA的中断
+
+    DMAMUX->CHCFG[0] = DMAMUX_CHCFG_ENBL_MASK | DMAMUX_CHCFG_SOURCE(49);//使能DMA通道和通道源,触发DMA传输的信号源为摄像头时钟信号PLCK的上升沿
+
+    PORTA->ISFR = 1;
+    set_irq_priority(PORTA_IRQn,2);//设置中断优先级为1
+    enable_irq(PORTA_IRQn);                         //场中断打开，允许PTA的中断
+    ov7725_eagle_img_flag = IMG_START;
+	
+	//DELAY_MS(50);
     while(ov7725_eagle_img_flag != IMG_FINISH)           //等待图像采集完毕
     {
         if(ov7725_eagle_img_flag == IMG_FAIL)            //假如图像采集错误，则重新开始采集
         {
             ov7725_eagle_img_flag = IMG_START;           //开始采集图像
-            //PORTA_ISFR = ~0;                //写1清中断标志位(必须的，不然回导致一开中断就马上触发中断)
-            PORTA->ISFR = ~0;
-            enable_irq(PORTA_IRQn);                 //允许PTA的中断
+            PORTA->ISFR = 1;
+            enable_irq(PORTA_IRQn);                //场中断打开，允许PTA的中断
         }
     }
 }
 
-
 /*DMA中断服务函数*/
 void ov7725_eagle_dma()
 {
-    disable_irq(PORTA_IRQn);  
     ov7725_eagle_img_flag = IMG_FINISH ;
-   // DMA_IRQ_CLEAN(CAMERA_DMA_CH);           //清除通道传输中断标志位
+    //DMAMUX->CHCFG[0] |= ~(1<<7);//停止传输
+    DMA0->CINT = DMA_CINT_CINT(0);//清除中断标志位
+    DEBUG_PRINTF("DMA传输完毕后进入中断\n");
+    disable_irq(PORTA_IRQn); 
 }
 
 void ov7725_eagle_vsync(void)   //场中断
 {
-
+    
     //场中断需要判断是场结束还是场开始
     if(ov7725_eagle_img_flag == IMG_START)                   //需要开始采集图像
     {
         ov7725_eagle_img_flag = IMG_GATHER;                  //标记图像采集中
-        disable_irq(PORTA_IRQn);
+        //disable_irq(PORTA_IRQn);
 
         //PORTA_ISFR = 1 <<  PT27;            //清空PCLK标志位
-        PORTA->ISFR = 1<<27U;
+        PORTA->ISFR |= 1<<27U;
 
         //DMA_EN(CAMERA_DMA_CH);                  //使能通道CHn 硬件请求
         enable_irq(DMA0_DMA16_IRQn);//开启中断，但未开始传输
         DMA0->SERQ = DMA_SERQ_SAER(0);//DMA开始传输
 
         //PORTA_ISFR = 1 <<  PT27;            //清空PCLK标志位
-        PORTA->ISFR = 1<<27U;
-
+        PORTA->ISFR |= 1<<27U;
+        //DEBUG_PRINTF("进入场中断\n");
         //DMA_DADDR(CAMERA_DMA_CH) = (uint32)ov7725_eagle_img_buff;    //恢复地址
-
     }
     else                                        //图像采集错误
     {
         disable_irq(PORTA_IRQn);                        //关闭PTA的中断
         ov7725_eagle_img_flag = IMG_FAIL;                    //标记图像采集失败
+        //DEBUG_PRINTF("标记图像采集失败\n");
     }
 }
 
@@ -236,15 +243,15 @@ void Crmera_Pin_init(void)
     port_pin_config_t ov7725_port_config;
     /*
     *PTA27(摄像头PLCK引脚初始化)
-    * 关闭强驱动模式
+    * 开启强驱动模式
     * 选择GPIO复用
     * 失能开漏输出
     * 关闭数字滤波器
     * 端口下拉
     * 使能快速模式
-    * 下降沿触发DMA
+    * 下降沿触发DMA传输
     */
-    ov7725_port_config.driveStrength = kPORT_LowDriveStrength;
+    ov7725_port_config.driveStrength = kPORT_HighDriveStrength;
     ov7725_port_config.lockRegister = 0U;
     ov7725_port_config.mux = kPORT_MuxAsGpio;
     ov7725_port_config.openDrainEnable = kPORT_OpenDrainDisable;
@@ -254,18 +261,19 @@ void Crmera_Pin_init(void)
     PORT_SetPinConfig(PORTA, 27U, &ov7725_port_config);
     PORT_SetPinInterruptConfig(PORTA,27U,kPORT_DMAFallingEdge);
     /*
-    *PTA29(摄像头 场中断 引脚初始化)
-    * 关闭强驱动模式
+    *PTA29(摄像头 <场中断> 引脚初始化)
+    * 开启强驱动模式
     * 选择GPIO复用
     * 失能开漏输出
     * 开启数字滤波器
     * 端口下拉
     * 使能快速模式
+    * 上升沿触发中断
     */
-    ov7725_port_config.driveStrength = kPORT_LowDriveStrength;
+    ov7725_port_config.driveStrength = kPORT_HighDriveStrength;
     ov7725_port_config.lockRegister = 0U;
     ov7725_port_config.mux = kPORT_MuxAsGpio;
-    ov7725_port_config.openDrainEnable = kPORT_OpenDrainEnable;
+    ov7725_port_config.openDrainEnable = kPORT_OpenDrainDisable;
     ov7725_port_config.passiveFilterEnable = kPORT_PassiveFilterEnable;
     ov7725_port_config.pullSelect = kPORT_PullDown;
     ov7725_port_config.slewRate = kPORT_FastSlewRate;

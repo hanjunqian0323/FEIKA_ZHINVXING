@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-11-28 17:35:28
- * @LastEditTime: 2019-12-10 21:03:40
+ * @LastEditTime: 2019-12-14 22:12:11
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \FEIKA_ZHINVXING\Freescals\source\main.c
@@ -45,27 +45,48 @@ int main(void)
 
     BlueTooes_UART_Init();
 	
-
+	LED_Init();
 	SYSTICK_INIT(CLOCK_GetFreq(kCLOCK_CoreSysClk)/1000000);
 
+	
+	#if 1
+	#if defined(USA_Fire_DAP)
+		PRINTF("\r\n");
+		PRINTF("/***********************************/\n");
+		PRINTF("CORE:            %d MHz\r\n", CLOCK_GetFreq(kCLOCK_CoreSysClk)/1000000);
+		PRINTF("BUS:             %d MHz\r\n", CLOCK_GetFreq(kCLOCK_BusClk)/1000000);
+		PRINTF("FlexBus:         %d MHz\r\n", CLOCK_GetFreq(kCLOCK_FlexBusClk)/1000000);
+		PRINTF("/***********************************/\n");
+		#elif defined(USA_Jlink)
+		printf("\r\n");
+		printf("/***********************************/\n");
+		printf("CORE:            %d MHz\r\n", CLOCK_GetFreq(kCLOCK_CoreSysClk)/1000000);
+		printf("BUS:             %d MHz\r\n", CLOCK_GetFreq(kCLOCK_BusClk)/1000000);
+		printf("FlexBus:         %d MHz\r\n", CLOCK_GetFreq(kCLOCK_FlexBusClk)/1000000);
+		printf("/***********************************/\n");
+		#endif
+	#endif
 	LED_Init();
-	//ov7725_eagle_reg_init();
 	ov7725_eagle_init(imgbuffer);//摄像头初始化
-	ov7725_eagle_get_img();//获取图像
-	for(i=0;i<80*60;i++)
-	DEBUG_PRINTF("%c",imgbuffer[i]);
+	
 	while(1)
 	{
-		LED_On(LED0);
-		DELAY_MS(500);
-		LED_Off(LED0);
-		DELAY_MS(500);
+		ov7725_eagle_get_img();//获取图像
+		
 	}
 }
 
 void Error_Handle(void)
 {
 	while(1);
+}
+
+void HardFault_Handler(void)
+{
+	while(1)
+	{
+		LED_On(LED0);
+	}
 }
 
 #if 0
